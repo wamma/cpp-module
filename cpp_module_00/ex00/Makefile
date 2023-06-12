@@ -6,7 +6,7 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 21:52:56 by hyungjup          #+#    #+#              #
-#    Updated: 2023/06/12 22:02:07 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/06/12 22:25:03 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,24 +23,17 @@ OBJS = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)$(NAME) created!"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	@${CC} ${CFLAG} -c $< -o $@
+	${CC} ${CFLAG} -c $< -o $@
 
 clean :
-	@$(RM) $(RMFLAG) $(OBJS)
-	@echo "$(YELLOW)object files deleted!"
+	$(RM) $(RMFLAG) $(OBJS)
 
 fclean : clean
-	@$(RM) $(NAME)
-	@echo "$(RED)all deleted"
+	$(RM) $(NAME)
 
 re : fclean all
 
 .PHONY : all clean fclean re
-
-RED = \033[1;31m
-GREEN = \033[1;32m
-YELLOW = \033[0;33m
