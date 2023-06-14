@@ -6,13 +6,13 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 21:52:56 by hyungjup          #+#    #+#              #
-#    Updated: 2023/06/12 22:25:03 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/06/14 13:59:06 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-CC = clang++
+CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 

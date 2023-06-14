@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 20:45:07 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/06/14 16:15:34 by hyungjup         ###   ########.fr       */
+/*   Created: 2023/06/14 15:59:37 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/06/14 16:00:57 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-
+#include "contact.hpp"
+#include "phonebook.hpp"
 
 int	main(int argc, char **argv)
 {
-	if (argc <= 1)
-		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;
-	else
+	Phonebook	phonebook;
+	std::string	command;
+
+	while (1)
 	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string str = argv[i];
-			for (std::string::iterator it = str.begin(); it != str.end(); ++it)
-			{
-				*it = std::toupper(*it);
-			}
-			if (i != 1)
-				std::cout<<" ";
-			std::cout<<str;
-		}
-		std::cout<<std::endl;
+		std::cout << "Enter command: ";
+		std::getline(std::cin, command);
+		if (command == "EXIT")
+			break ;
+		else if (command == "ADD")
+			phonebook.add();
+		else if (command == "SEARCH")
+			phonebook.search();
+		else
+			std::cout << "Invalid command" << std::endl;
 	}
 	return 0;
 }
