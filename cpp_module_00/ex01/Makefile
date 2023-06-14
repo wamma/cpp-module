@@ -6,41 +6,38 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/12 21:52:56 by hyungjup          #+#    #+#              #
-#    Updated: 2023/06/12 22:02:07 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/06/14 16:27:16 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-CC = clang++
+HEADER = Phonebook.hpp \
+		Contact.hpp
+CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = megaphone.cpp
+SRCS = main.cpp \
+		Phonebook.cpp \
+		Contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)$(NAME) created!"
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	@${CC} ${CFLAG} -c $< -o $@
+	${CC} ${CFLAG} -c $< -o $@
 
 clean :
-	@$(RM) $(RMFLAG) $(OBJS)
-	@echo "$(YELLOW)object files deleted!"
+	$(RM) $(RMFLAG) $(OBJS)
 
 fclean : clean
-	@$(RM) $(NAME)
-	@echo "$(RED)all deleted"
+	$(RM) $(NAME)
 
 re : fclean all
 
 .PHONY : all clean fclean re
-
-RED = \033[1;31m
-GREEN = \033[1;32m
-YELLOW = \033[0;33m
