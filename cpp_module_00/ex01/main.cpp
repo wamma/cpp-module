@@ -1,27 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 15:59:37 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/06/14 16:00:57 by hyungjup         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "contact.hpp"
 #include "phonebook.hpp"
 
-int	main(int argc, char **argv)
-{
-	Phonebook	phonebook;
-	std::string	command;
 
-	while (1)
+// phonebook에서 add, search
+// contact에서 각각의 정보를 받아서 저장
+int	main(void)
+{
+	std::string	command;
+	PhoneBook	phonebook;
+
+	std::cout<<"Welcome to the phonebook!"<<std::endl;
+	std::cout<<"Available commands: ADD, SEARCH, EXIT"<<std::endl;
+	while (TRUE)
 	{
-		std::cout << "Enter command: ";
-		std::getline(std::cin, command);
+		std::cout << "Enter command: "<<std::endl;
+		std::cin >> command;
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")

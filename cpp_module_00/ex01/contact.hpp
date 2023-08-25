@@ -1,44 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 16:01:33 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/06/14 22:55:03 by hyungjup         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
 # include <iostream>
-# include <iomanip>
+# include <string>
 
 class Contact
 {
 	private:
-		std::string	first_name;
-		std::string	last_name;
+		std::string	firstName;
+		std::string	lastName;
 		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
+		std::string	phoneNumber;
+		std::string	darkestSecret;
+
 	public:
-		void set() {
-			std::cout << "Enter first name: ";
-			std::getline(std::cin, this->first_name);
+		Contact(); // 기본 생성자
+		~Contact(); // 소멸자
+		Contact(std::string firstname, std::string lastname, \
+		std::string nickname, std::string phonenumber, std::string darkestsecret); // 생성자
 
-			std::cout << "Enter last name: ";
-			std::getline(std::cin, this->last_name);
-
-			std::cout << "Enter nickname: ";
-			std::getline(std::cin, this->nickname);
-		}
-
-		void print(int index) {
-			
-		}
+		bool		isEmpty(); // 비어있는지 확인
+		std::string	getFirstName(); // firstName getter
+		std::string	getLastName(); // lastName getter
+		std::string	getNickname(); // nickname getter
+		std::string	getPhoneNumber(); // phoneNumber getter
+		std::string	getDarkestSecret(); // darkestSecret getter
 };
-
 #endif
