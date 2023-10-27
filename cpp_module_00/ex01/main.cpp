@@ -15,6 +15,8 @@ int main(void)
 			phonebook.add();
 		else if (command == "SEARCH")
 			phonebook.search();
+		else
+			std::cout << "Wrong Command!!" << std::endl;
 	}
 	return 0;
 }
