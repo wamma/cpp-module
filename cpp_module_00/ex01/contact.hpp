@@ -7,23 +7,29 @@
 class Contact
 {
 	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickname;
-		std::string	phoneNumber;
-		std::string	darkestSecret;
+		std::string	_firstname;
+		std::string	_lastname;
+		std::string	_nickname;
+		std::string	_phonenumber;
+		std::string	_darksecret;
 
 	public:
-		Contact(); // 기본 생성자
-		~Contact(); // 소멸자
-		Contact(std::string firstname, std::string lastname, \
-		std::string nickname, std::string phonenumber, std::string darkestsecret); // 생성자
+		Contact();
+		~Contact();
+		void setFirstName(std::string firstname);
+		std::string getFirstName() const;
 
-		bool		isEmpty(); // 비어있는지 확인
-		std::string	getFirstName(); // firstName getter
-		std::string	getLastName(); // lastName getter
-		std::string	getNickname(); // nickname getter
-		std::string	getPhoneNumber(); // phoneNumber getter
-		std::string	getDarkestSecret(); // darkestSecret getter
+		void setLastName(std::string lastname);
+		std::string getLastName() const;
+
+		void setNickName(std::string nickname);
+		std::string getNickName() const;
+
+		void setPhoneNumber(std::string phonenumber);
+		std::string getPhoneNumber() const;
+
+		void setDarkScret(std::string darksecret);
+		std::string getDarkScret() const;
 };
+
 #endif

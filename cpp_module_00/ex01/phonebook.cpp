@@ -1,95 +1,51 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-PhoneBook::PhoneBook() {}
+PhoneBook::PhoneBook() : _index(0) {}
 
 PhoneBook::~PhoneBook() {}
 
-void	PhoneBook::add()
-{
-	std::string	firstName;
-	std::string	lastName;
+void PhoneBook::add() {
+	std::string	firstname;
+	std::string	lastname;
 	std::string	nickname;
-	std::string	phoneNumber;
-	std::string	darkestSecret;
+	std::string	phonenumber;
+	std::string	darksecret;
 
-	if (index >= MAX_CONTACTS)
-	{
-		for (int i = 1; i <= MAX_CONTACTS; i++)
-			contact[i] = contact[i + 1];
-		index--;
-	}
-
-	do {
-		std::cout<<"Enter first name: ";
-		std::cin>>firstName;
-
-		std::cout<<"Enter last name: ";
-		std::cin>>lastName;
-
-		std::cout<<"Enter nickname: ";
-		std::cin>>nickname;
-
-		std::cout<<"Enter phone number: ";
-		std::cin>>phoneNumber;
-
-		std::cout<<"Enter darkest secret: ";
-		std::cin>>darkestSecret;
-
-		contact[index] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
-	} while(contact[index].isEmpty());
-	index++;
+	if (_index > 7)
+		_index = 0;
+	std::cout << "type firstname" << std::endl;
+	std::cin >> firstname;
+	std::cout << "type lastname" << std::endl;
+	std::cin >> lastname;
+	std::cout << "type nickname" << std::endl;
+	std::cin >> nickname;
+	std::cout << "type phonenumber" << std::endl;
+	std::cin >> phonenumber;
+	std::cout << "type darksecret" << std::endl;
+	std::cin >> darksecret;
+	_contact[_index].setFirstName(firstname);
+	_contact[_index].setLastName(lastname);
+	_contact[_index].setNickName(nickname);
+	_contact[_index].setPhoneNumber(phonenumber);
+	_contact[_index].setDarkScret(darksecret);
+	++_index;
 }
 
-void	PhoneBook::search()
-{
-	int			i;
-	std::string	index;
+void PhoneBook::search() {
+	int index = 0;
 
-	if (this->index == 0)
-	{
-		std::cout << "Phonebook is empty" << std::endl;
+	if (_index == 0) {
+		std::cout << "PhoneBook is empty" << std::endl;
 		return ;
 	}
-	std::cout << "     index|first name| last name|  nickname|" << std::endl;
-	i = 0;
-	while (i < this->index)
+	std::cout << "     index|first name|last name|nickname|" << std::endl;
+	while (index < _index)
 	{
-		std::cout << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << contact[i].getFirstName() << "|";
-		std::cout << std::setw(10) << contact[i].getLastName() << "|";
-		std::cout << std::setw(10) << contact[i].getNickname() << "|" << std::endl;
-		i++;
+		std::cout << "     " << index << "    |" 
+				<< formatName(_contact[index].getFirstName().substr(0, 10)) << "|"
+				<< formatName(_contact[index].getLastName().substr(0, 10)) << "|"
+				<< formatName(_contact[index].getNickName().substr(0, 10)) << "|" << std::endl;
+		++index;
 	}
-	std::cout << "Enter index: ";
-	std::cin >> index;
-	if (index.length() != 1 || index[0] < '0' || index[0] > '7')
-	{
-		std::cout << "Invalid index" << std::endl;
-		return ;
-	}
-	i = index[0] - '0';
-	if (i >= this->index)
-	{
-		std::cout << "Invalid index" << std::endl;
-		return ;
-	}
-	showContact(i);
-}
-
-void	PhoneBook::print_with_format(std::string str)
-{
-	if (str.length() > 10)
-		std::cout << str.substr(0, 9) << ".";
-	else
-		std::cout << std::setw(10) << str;
-}
-
-void	PhoneBook::showContact(int index)
-{
-	std::cout<< std::setw(10) << index << "|";
-	std::cout << "First name: " << contact[index].getFirstName() << std::endl;
-	std::cout << "Last name: " << contact[index].getLastName() << std::endl;
-	std::cout << "Nickname: " << contact[index].getNickname() << std::endl;
-	std::cout << "Phone number: " << contact[index].getPhoneNumber() << std::endl;
-	std::cout << "Darkest secret: " << contact[index].getDarkestSecret() << std::endl;
 }

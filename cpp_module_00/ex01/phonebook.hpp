@@ -3,25 +3,27 @@
 
 # include <iostream>
 # include <string>
-#include <iomanip>
-# include "contact.hpp"
+# include "Contact.hpp"
 
-# define TRUE 1
-# define FALSE 0
-# define ERROR -1
-# define MAX_CONTACTS 8
+# define FALSE		0
+# define TRUE		1
+# define ERROR		-1
+# define MAX_NUM	8
 
 class PhoneBook {
 	private:
-		Contact 	contact[MAX_CONTACTS];
-		int			index;
+		Contact _contact[MAX_NUM];
+		int _index;
+		std::string formatName(std::string name) {
+			if (name.length() > 10)
+				return name.substr(0, 9) + ".";
+			return name;
+		}
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void		add();
-		void		search();
-		void		showContact(int index);
-		void		print_with_format(std::string str);
+		void add();
+		void search();
 };
 
 #endif
