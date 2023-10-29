@@ -16,6 +16,10 @@
 //                               Account Class                                //
 // ************************************************************************** //
 
+#include <iostream>
+#include <ctime>
+#include <vector>
+
 class Account {
 
 

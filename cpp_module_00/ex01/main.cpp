@@ -74,8 +74,7 @@ void searchContacts(PhoneBook &phoneBook)
     }
 
     std::cout << "Enter index of contact to display: ";
-    std::cin >> index;
-    std::cin.ignore(INT_MAX, '\n');
+    std::string getline(std::cin, index);
 
     if (index < 0 || index > 7)
     {
@@ -84,11 +83,11 @@ void searchContacts(PhoneBook &phoneBook)
     }
 
     contact = phoneBook.getContact(index);
-    std::cout << "First name: " << contact.getFirstName() << '\n';
-    std::cout << "Last name: " << contact.getLastName() << '\n';
-    std::cout << "Nickname: " << contact.getNickname() << '\n';
-    std::cout << "Phone number: " << contact.getPhoneNumber() << '\n';
-    std::cout << "Darkest secret: " << contact.getDarkestSecret() << '\n';
+    std::cout << "First name: " << contact.getFirstName() << std::endl;
+    std::cout << "Last name: " << contact.getLastName() << std::endl;
+    std::cout << "Nickname: " << contact.getNickname() << std::endl;
+    std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
+    std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
 int main()
@@ -102,18 +101,11 @@ int main()
         std::getline(std::cin, command);
 
         if (command == "EXIT")
-        {
             break;
-        }
         else if (command == "ADD")
-        {
             addContact(phoneBook);
-        }
         else if (command == "SEARCH")
-        {
             searchContacts(phoneBook);
-        }
     }
-
     return 0;
 }

@@ -6,15 +6,15 @@
 
 class PhoneBook
 {
-private:
-    Contact contacts[8];
-    int oldestContactIndex;
+    private:
+        Contact contacts[8];
+        int oldestContactIndex;
 
-public:
-    PhoneBook();
-    void addContact(Contact contact);
-    Contact getContact(int index);
-    int getOldestContactIndex();
+    public:
+        PhoneBook();
+        void addContact(Contact contact);
+        Contact getContact(int index);
+        int getOldestContactIndex();
 };
 
 #endif
