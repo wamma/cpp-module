@@ -1,46 +1,43 @@
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include "contact.hpp"
 
-Contact::Contact() {}
+Contact::Contact(){}
 
-Contact::~Contact() {}
-
-void Contact::setFirstName(std::string firstname) {
-	_firstname = firstname;
+void Contact::setFirstName(std::string firstName) {
+    this->firstName = firstName;
 }
 
-std::string Contact::getFirstName() const {
-	return _firstname;
+void Contact::setLastName(std::string lastName) {
+    this->lastName = lastName;
 }
 
-void Contact::setLastName(std::string lastname) {
-	_lastname = lastname;
+void Contact::setNickname(std::string nickname) {
+    this->nickname = nickname;
 }
 
-std::string Contact::getLastName() const {
-	return _lastname;
+void Contact::setPhoneNumber(std::string phoneNumber) {
+    this->phoneNumber = phoneNumber;
 }
 
-void Contact::setNickName(std::string nickname) {
-	_nickname = nickname;
+void Contact::setDarkestSecret(std::string darkestSecret) {
+    this->darkestSecret = darkestSecret;
 }
 
-std::string Contact::getNickName() const {
-	return _nickname;
+std::string Contact::getFirstName() {
+    return this->firstName;
 }
 
-void Contact::setPhoneNumber(std::string phonenumber) {
-	_phonenumber = phonenumber;
+std::string Contact::getLastName() {
+    return this->lastName;
 }
 
-std::string Contact::getPhoneNumber() const {
-	return _phonenumber;
+std::string Contact::getNickname() {
+    return this->nickname;
 }
 
-void Contact::setDarkScret(std::string darksecret) {
-	_darksecret = darksecret;
+std::string Contact::getPhoneNumber() {
+    return this->phoneNumber;
 }
 
-std::string Contact::getDarkScret() const {
-	return _darksecret;
+std::string Contact::getDarkestSecret() {
+    return this->darkestSecret;
 }

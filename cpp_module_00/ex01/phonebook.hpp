@@ -1,29 +1,20 @@
 #ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-# include <iostream>
-# include <string>
-# include "Contact.hpp"
+#include <string>
+#include "contact.hpp"
 
-# define FALSE		0
-# define TRUE		1
-# define ERROR		-1
-# define MAX_NUM	8
+class PhoneBook
+{
+private:
+    Contact contacts[8];
+    int oldestContactIndex;
 
-class PhoneBook {
-	private:
-		Contact _contact[MAX_NUM];
-		int _index;
-		std::string formatName(std::string name) {
-			if (name.length() > 10)
-				return name.substr(0, 9) + ".";
-			return name;
-		}
-	public:
-		PhoneBook();
-		~PhoneBook();
-		void add();
-		void search();
+public:
+    PhoneBook();
+    void addContact(Contact contact);
+    Contact getContact(int index);
+    int getOldestContactIndex();
 };
 
 #endif

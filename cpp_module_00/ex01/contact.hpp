@@ -1,35 +1,29 @@
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
-# include <iostream>
-# include <string>
+#include <string>
 
 class Contact
 {
-	private:
-		std::string	_firstname;
-		std::string	_lastname;
-		std::string	_nickname;
-		std::string	_phonenumber;
-		std::string	_darksecret;
+private:
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
 
-	public:
-		Contact();
-		~Contact();
-		void setFirstName(std::string firstname);
-		std::string getFirstName() const;
-
-		void setLastName(std::string lastname);
-		std::string getLastName() const;
-
-		void setNickName(std::string nickname);
-		std::string getNickName() const;
-
-		void setPhoneNumber(std::string phonenumber);
-		std::string getPhoneNumber() const;
-
-		void setDarkScret(std::string darksecret);
-		std::string getDarkScret() const;
+public:
+    Contact();
+    void setFirstName(std::string firstName);
+    void setLastName(std::string lastName);
+    void setNickname(std::string nickname);
+    void setPhoneNumber(std::string phoneNumber);
+    void setDarkestSecret(std::string darkestSecret);
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getNickname();
+    std::string getPhoneNumber();
+    std::string getDarkestSecret();
 };
 
 #endif
