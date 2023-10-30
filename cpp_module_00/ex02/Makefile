@@ -6,7 +6,7 @@ CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp tests.cpp
+SRCS = tests.cpp, Account.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

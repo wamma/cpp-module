@@ -1,12 +1,12 @@
-NAME = phonebook
+NAME = PhoneBook
 
-HEADER = phonebook.hpp \
-		contact.hpp
+HEADER = PhoneBook.hpp \
+		Contact.hpp
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp phonebook.cpp contact.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
