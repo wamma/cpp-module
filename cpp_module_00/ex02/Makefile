@@ -1,12 +1,11 @@
-NAME =account
+NAME = account
 
-HEADER = Account.hpp \
-		 
+HEADER = Account.hpp
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = tests.cpp, Account.cpp
+SRCS = tests.cpp Account.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
