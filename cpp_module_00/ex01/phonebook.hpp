@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include <climits>
+#include <sstream>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -15,9 +16,13 @@ class PhoneBook
 
 	public:
 		PhoneBook();
-		void addContact(Contact contact);
+		void addContact();
 		Contact getContact(int index);
-		int getOldestContactIndex();
+		void searchContacts(PhoneBook &phoneBook);
+
+	private:
+		std::string truncate(std::string str, size_t width);
+		void deleteEof();
 };
 
 #endif
