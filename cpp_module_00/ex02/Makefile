@@ -1,4 +1,4 @@
-NAME = account
+NAME = Account
 
 HEADER = Account.hpp
 CC = c++
