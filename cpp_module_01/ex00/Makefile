@@ -1,4 +1,4 @@
-NAME = Zombie1
+NAME = Zombie0
 
 HEADER = Zombie.hpp
 CC = c++
