@@ -8,13 +8,15 @@ void Replace::replace(std::string filename, std::string s1, std::string s2) {
 		return;
 	}
 
-	std::string line;
+	// std::string line;
 	std::string contents;
-	while (std::getline(inputFileStream, line)) {
-		contents += line + '\n';
-	}
+	// while (std::getline(inputFileStream, line, '\0')) {
+	// 	contents += line + '\n';
+	// }
 
-	inputFileStream.close();
+	std::getline(inputFileStream, contents, '\0');
+
+	// inputFileStream.close();
 
 	size_t pos = 0;
 	while ((pos = contents.find(s1, pos)) != std::string::npos) {
@@ -33,5 +35,5 @@ void Replace::replace(std::string filename, std::string s1, std::string s2) {
 	}
 	outputFileStream << contents;
 
-	outputFileStream.close();
+	// outputFileStream.close();
 }
