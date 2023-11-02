@@ -1,11 +1,11 @@
-NAME = In
+NAME = Fixed
 
-HEADER = Zombie.hpp
+HEADER = Fixed.hpp
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
