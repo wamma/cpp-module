@@ -1,4 +1,4 @@
-NAME = Zombie3
+NAME = Human
 
 HEADER = Weapon.hpp HumanA.hpp HumanB.hpp
 CC = c++

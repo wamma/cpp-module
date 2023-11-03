@@ -27,10 +27,10 @@ void Replace::replace(std::string filename, std::string s1, std::string s2) {
 		std::cout << "Could not find the string to replace" << std::endl;
 	}
 
-	std::ofstream outputFileStream(filename);
+	std::ofstream outputFileStream(filename + ".replace");
 
 	if (!outputFileStream.is_open()) {
-		std::cerr << "Error: could not open file " << filename << std::endl;
+		std::cerr << "Error: could not open file " << filename + ".replace" << std::endl;
 		return;
 	}
 	outputFileStream << contents;
