@@ -5,6 +5,14 @@
 # include <string>
 # include <map>
 
+enum LogLevel {
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR,
+	INVALID
+};
+
 class Harl
 {
 	private:
@@ -14,7 +22,8 @@ class Harl
 		void error(void);
 
 	public:
-		void complain(std::string level);
+		void complain(const std::string &level);
+		LogLevel getLevel(const std::string &str);
 };
 
 #endif

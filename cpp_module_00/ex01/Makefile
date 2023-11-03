@@ -3,7 +3,7 @@ NAME = PhoneBook
 HEADER = PhoneBook.hpp \
 		Contact.hpp
 CC = c++
-CFLAG = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
@@ -16,7 +16,7 @@ $(NAME): $(OBJS) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	${CC} ${CFLAG} -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean :
 	$(RM) $(RMFLAG) $(OBJS)
