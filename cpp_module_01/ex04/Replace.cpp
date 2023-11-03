@@ -16,7 +16,7 @@ void Replace::replace(std::string filename, std::string s1, std::string s2) {
 
 	std::getline(inputFileStream, contents, '\0');
 
-	// inputFileStream.close();
+	inputFileStream.close();
 
 	size_t pos = 0;
 	while ((pos = contents.find(s1, pos)) != std::string::npos) {
@@ -35,5 +35,5 @@ void Replace::replace(std::string filename, std::string s1, std::string s2) {
 	}
 	outputFileStream << contents;
 
-	// outputFileStream.close();
+	outputFileStream.close();
 }
