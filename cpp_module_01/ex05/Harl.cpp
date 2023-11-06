@@ -18,16 +18,14 @@ void Harl::error (void) {
 
 void Harl::complain (std::string level) {
 	typedef void (Harl::*func)(void);
-	std::map<std::string, func> funcMap;
+	func funcArray[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string levels[4] = {"debug", "info", "warning", "error"};
 
-	funcMap["debug"] = &Harl::debug;
-	funcMap["info"] = &Harl::info;
-	funcMap["warning"] = &Harl::warning;
-	funcMap["error"] = &Harl::error;
-
-	std::map<std::string, func>::iterator it = funcMap.find(level);
-	if (it != funcMap.end())
-		(this->*(it->second))();
-	else
-		std::cout << "Invalid level." << std::endl;
+	for (int i = 0; i < 4; ++i) {
+		if (level == levels[i]) {
+				(this->*funcArray[i])();
+				return ;
+		}
+	}
+	std::cout << "Invalid level." << std::endl;
 }
