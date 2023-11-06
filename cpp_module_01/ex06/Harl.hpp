@@ -4,14 +4,6 @@
 # include <iostream>
 # include <string>
 
-enum LogLevel {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	INVALID
-};
-
 class Harl
 {
 	private:
@@ -22,7 +14,6 @@ class Harl
 
 	public:
 		void complain(const std::string &level);
-		LogLevel getLevel(const std::string &str);
 };
 
 #endif

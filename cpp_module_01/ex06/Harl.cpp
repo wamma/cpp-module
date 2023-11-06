@@ -16,33 +16,24 @@ void Harl::error (void) {
 	std::cout << "[ Error ]\nThis is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-LogLevel Harl::getLevel (const std::string &str) {
-	if (str == "DEBUG")
-		return DEBUG;
-	else if (str == "INFO")
-		return INFO;
-	else if (str == "WARNING")
-		return WARNING;
-	else if (str == "ERROR")
-		return ERROR;
-	else
-		return INVALID;
-}
-
 void Harl::complain (const std::string &level) {
-	LogLevel logLevel = getLevel(level);
-	switch(logLevel) {
-		case DEBUG:
-			debug();
-		case INFO:
-			info();
-		case WARNING:
-			warning();
-		case ERROR:
-			error();
+	typedef void (Harl::*func)(void);
+	func funcArray[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int levelIndex = -1;
+	for (int i = 0; i < 4; ++i) {
+		if (level == levels[i]) {
+			levelIndex = i;
 			break;
-		default:
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-			break;
+		}
+	}
+
+	if (levelIndex == -1) {
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		return;
+	}
+
+	for (int i = levelIndex; i < 4; ++i) {
+		(this->*funcArray[i])();
 	}
 }
