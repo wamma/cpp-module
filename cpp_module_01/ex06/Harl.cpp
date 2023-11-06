@@ -16,7 +16,7 @@ void Harl::error (void) {
 	std::cout << "[ Error ]\nThis is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain (const std::string &level) {
+void Harl::complain (std::string level) {
 	typedef void (Harl::*func)(void);
 	func funcArray[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
