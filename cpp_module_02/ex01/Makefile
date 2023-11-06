@@ -1,4 +1,4 @@
-NAME = Fixed2
+NAME = Fixed
 
 HEADER = Fixed.hpp
 CC = c++

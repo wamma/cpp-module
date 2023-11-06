@@ -7,14 +7,14 @@
 class Fixed
 {
 	private:
-		int					fixed_point_value;
-		static const int	bits = 8;
+		int fixedPointValue;
+		static const int bits = 8;
 
 	public:
-		Fixed(void);
-		Fixed(const Fixed &src);
-		~Fixed(void);
-		Fixed	&operator=(const Fixed &rhs);
+		Fixed();
+		Fixed(const Fixed &source);
+		~Fixed();
+		Fixed	&operator=(const Fixed &source);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
