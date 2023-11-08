@@ -1,14 +1,15 @@
 #include "Replace.hpp"
 
 void Replace::replace(std::string filename, std::string s1, std::string s2) {
-	std::ifstream inputFileStream(filename);
+	std::ifstream inputFileStream(filename.c_str());
 
 	if (!inputFileStream.is_open()) {
 		std::cerr << "Error: could not open file " << filename << std::endl;
 		return;
 	}
 
-	std::ofstream outputFileStream(filename + ".replace");
+	std::string output = filename + ".replace";
+	std::ofstream outputFileStream(output.c_str());
 	if (!outputFileStream.is_open()) {
 		std::cerr << "Error: could not open file " << filename << ".replace" << std::endl;
 		return;
