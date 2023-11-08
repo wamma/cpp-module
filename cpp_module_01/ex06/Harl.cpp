@@ -27,13 +27,23 @@ void Harl::complain (std::string level) {
 			break;
 		}
 	}
-
 	if (levelIndex == -1) {
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		return;
 	}
 
-	for (int i = levelIndex; i < 4; ++i) {
-		(this->*funcArray[i])();
+	switch (levelIndex)
+	{
+	case 0:
+		(this->*funcArray[0])();
+	case 1:
+		(this->*funcArray[1])();
+	case 2:
+		(this->*funcArray[2])();
+	case 3:
+		(this->*funcArray[3])();
+		break;
+	default:
+		std::cout << "levelIndex: " << levelIndex<< std::endl;
 	}
 }
