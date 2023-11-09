@@ -7,7 +7,7 @@
 class Fixed
 {
 	private:
-		int fixedPointValue;
+		int _fixedPointValue;
 		static const int bits = 8;
 
 	public:

@@ -1,18 +1,18 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : fixedPointValue(0) {
+Fixed::Fixed() : _fixedPointValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &source) : fixedPointValue(source.fixedPointValue) {
+Fixed::Fixed(const Fixed &source) : _fixedPointValue(source._fixedPointValue) {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int value) : fixedPointValue(value << bits) {
+Fixed::Fixed(const int value) : _fixedPointValue(value << bits) {
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value) : fixedPointValue(roundf(value * (1 << bits))) {
+Fixed::Fixed(const float value) : _fixedPointValue(roundf(value * (1 << bits))) {
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -24,7 +24,7 @@ Fixed &Fixed::operator=(const Fixed &source) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &source)
 		return *this;
-	this->fixedPointValue = source.fixedPointValue;
+	this->_fixedPointValue = source._fixedPointValue;
 	return *this;
 }
 
@@ -69,7 +69,7 @@ bool Fixed::operator!=(const Fixed &source) {
 }
 
 Fixed &Fixed::operator++() {
-	this->fixedPointValue += 1 << this->bits;
+	this->_fixedPointValue += 1 << this->bits;
 	return *this;
 }
 
@@ -80,7 +80,7 @@ Fixed Fixed::operator++(int) {
 }
 
 Fixed &Fixed::operator--() {
-	this->fixedPointValue -= 1 << this->bits;
+	this->_fixedPointValue -= 1 << this->bits;
 	return *this;
 }
 
@@ -91,20 +91,20 @@ Fixed Fixed::operator--(int) {
 }
 
 int Fixed::toInt() const {
-	return fixedPointValue >> bits;
+	return _fixedPointValue >> bits;
 }
 
 float Fixed::toFloat() const {
-	return (float)fixedPointValue / (float)(1 << bits);
+	return (float)_fixedPointValue / (float)(1 << bits);
 }
 
 void Fixed::setRawBits(int const raw) {
-	this->fixedPointValue = raw;
+	this->_fixedPointValue = raw;
 }
 
 int Fixed::getRawBits(void) const {
 	std::cout << "getRawbits member function called" << std::endl;
-	return this->fixedPointValue;
+	return this->_fixedPointValue;
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
