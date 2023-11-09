@@ -6,6 +6,7 @@
 # include <iomanip>
 # include <climits>
 # include <sstream>
+# include <cstdio>
 #include "Contact.hpp"
 
 class PhoneBook
