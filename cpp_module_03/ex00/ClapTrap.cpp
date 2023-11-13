@@ -1,16 +1,16 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-	// std::cout << "ClapTrap " << _Name << "has been created" << std::endl;
+	std::cout << "ClapTrap " << _Name << " has been created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {
 	*this = other;
-	// std::cout << "Copy constructor called for " << _Name << std::endl;
+	std::cout << "Copy constructor called for " << _Name << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
-	// std::cout << "ClapTrap " << _Name << "has been destroyed." << std::endl;
+	std::cout << "ClapTrap " << _Name << " has been destroyed." << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
@@ -20,7 +20,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 		this->_EnergyPoints = other._EnergyPoints;
 		this->_AttackDamage = other._AttackDamage;
 	}
-	// std::cout << "Copy assignment operator called for " << _Name << std::endl;
+	std::cout << "Copy assignment operator called for " << _Name << std::endl;
 	return *this;
 }
 
