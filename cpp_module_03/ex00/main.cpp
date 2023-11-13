@@ -7,6 +7,16 @@ int main() {
 
     robot1.attack("Target1");
     robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
+    robot1.takeDamage(5);
     robot1.beRepaired(3);
 
     return 0;
