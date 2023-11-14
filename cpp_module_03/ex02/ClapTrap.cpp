@@ -1,16 +1,12 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _Name("Default"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-	std::cout << "ClapTrap 기본 생성자 호출" << std::endl;
-}
-
 ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
 	std::cout << "ClapTrap " << _Name << " has been created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {
 	*this = other;
-	std::cout << "Copy constructor called for " << _Name << std::endl;
+	std::cout << "ClapTrap: Copy constructor called for " << _Name << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
