@@ -1,5 +1,12 @@
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap() {
+	_HitPoints = 100;
+	_EnergyPoints = 50;
+	_AttackDamage = 20;
+	std::cout << "ScavTrap 기본 생성자 호출" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	_HitPoints = 100;
 	_EnergyPoints = 50;
