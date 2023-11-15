@@ -5,17 +5,17 @@ int main() {
     ScavTrap robot2("Robot2");
 
     robot1.attack("Target1");
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
-    robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
+    // robot1.takeDamage(5);
     robot1.takeDamage(5);
     robot1.guardGate();
 

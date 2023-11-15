@@ -5,7 +5,7 @@ ClapTrap::ClapTrap() : _Name("Default"), _HitPoints(10), _EnergyPoints(10), _Att
 }
 
 ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-	std::cout << "ClapTrap " << _Name << " has been created" << std::endl;
+	std::cout << "ClapTrap " << _Name << " has been created." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {

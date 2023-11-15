@@ -69,7 +69,7 @@ bool Fixed::operator!=(const Fixed &source) const {
 }
 
 Fixed &Fixed::operator++() {
-	this->_fixedPointValue += 1 << this->bits;
+	++_fixedPointValue;
 	return *this;
 }
 
@@ -80,7 +80,7 @@ Fixed Fixed::operator++(int) {
 }
 
 Fixed &Fixed::operator--() {
-	this->_fixedPointValue -= 1 << this->bits;
+	--_fixedPointValue;
 	return *this;
 }
 

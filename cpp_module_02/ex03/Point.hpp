@@ -22,6 +22,7 @@ class Point
 		const Fixed& getY() const;
 };
 
+Fixed sign(Point const a, Point const b, Point const c);
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
