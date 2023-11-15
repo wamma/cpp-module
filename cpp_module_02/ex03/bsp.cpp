@@ -1,7 +1,7 @@
 #include "Point.hpp"
 
-Fixed sign(Point const a, Point const b, Point const c) {
-	return (a.getX() - c.getX()) * (b.getY() - c.getY()) - (b.getX() - c.getX()) * (a.getY() - c.getY());
+Fixed sign(Point const p, Point const a, Point const b) {
+	return (p.getX() - b.getX()) * (a.getY() - b.getY()) - (a.getX() - b.getX()) * (p.getY() - b.getY());
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
