@@ -10,5 +10,5 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	alpha = sign(point, a, b);
 	beta = sign(point, b, c);
 	gamma = sign(point, c, a);
-	return ((alpha >= 0 && beta >= 0 && gamma >= 0) || (alpha <= 0 && beta <= 0 && gamma <= 0));
+	return ((alpha > 0 && beta > 0 && gamma > 0) || (alpha < 0 && beta < 0 && gamma < 0));
 }
