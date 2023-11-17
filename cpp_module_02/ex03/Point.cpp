@@ -14,10 +14,10 @@ Point &Point::operator=(const Point &source) {
 	return *this;
 }
 
-const Fixed &Point::getX() const {
-	return this->x;
+float Point::getX() const {
+	return this->x.toFloat();
 }
 
-const Fixed &Point::getY() const {
-	return this->y;
+float Point::getY() const{
+	return this->y.toFloat();
 }

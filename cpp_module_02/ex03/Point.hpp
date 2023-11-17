@@ -18,11 +18,11 @@ class Point
 		Point &operator=(const Point &source);
 		~Point();
 
-		const Fixed& getX() const;
-		const Fixed& getY() const;
+		float getX() const;
+		float getY() const;
 };
 
-Fixed sign(Point const a, Point const b, Point const c);
+// Fixed sign(Point const a, Point const b, Point const c);
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
