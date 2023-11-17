@@ -34,16 +34,16 @@ void Harl::complain (std::string level) {
 
 	switch (levelIndex)
 	{
-	case 0:
-		(this->*funcArray[0])();
-	case 1:
-		(this->*funcArray[1])();
-	case 2:
-		(this->*funcArray[2])();
-	case 3:
-		(this->*funcArray[3])();
-		break;
-	default:
-		std::cout << "levelIndex: " << levelIndex<< std::endl;
+		case 0:
+			(this->*funcArray[0])();
+		case 1:
+			(this->*funcArray[1])();
+		case 2:
+			(this->*funcArray[2])();
+		case 3:
+			(this->*funcArray[3])();
+			break;
+		default:
+			std::cout << "levelIndex: " << levelIndex<< std::endl;
 	}
 }

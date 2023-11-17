@@ -6,7 +6,7 @@ int main(void) {
 	Point b(1.0f, 0.0f);
 	Point c(0.0f, 1.0f);
 
-	Point p(0.0f, 1.0f);
+	Point p(0.5f, 0.5f);
 
 	bool checkInside = bsp(a, b, c, p);
 
