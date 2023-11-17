@@ -1,27 +1,16 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _fixedPointValue(0) {
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _fixedPointValue(0) {}
 
-Fixed::Fixed(const Fixed &source) : _fixedPointValue(source._fixedPointValue) {
-	std::cout << "Copy constructor called" << std::endl;
-}
+Fixed::Fixed(const Fixed &source) : _fixedPointValue(source._fixedPointValue) {}
 
-Fixed::Fixed(const int value) : _fixedPointValue(value << bits) {
-	std::cout << "Int constructor called" << std::endl;
-}
+Fixed::Fixed(const int value) : _fixedPointValue(value << bits) {}
 
-Fixed::Fixed(const float value) : _fixedPointValue(roundf(value * (1 << bits))) {
-	std::cout << "Float constructor called" << std::endl;
-}
+Fixed::Fixed(const float value) : _fixedPointValue(roundf(value * (1 << bits))) {}
 
-Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 Fixed &Fixed::operator=(const Fixed &source) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &source)
 		return *this;
 	this->_fixedPointValue = source._fixedPointValue;
@@ -131,7 +120,6 @@ void Fixed::setRawBits(int const raw) {
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawbits member function called" << std::endl;
 	return this->_fixedPointValue;
 }
 

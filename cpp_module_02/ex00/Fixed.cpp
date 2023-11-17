@@ -15,7 +15,7 @@ Fixed::Fixed(const Fixed &source) {
 
 Fixed	&Fixed::operator=(const Fixed &source) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &source) // 자기 자신에 대한 할당을 방지하는 역할
+	if (this == &source)
 		return *this;
 	this->_fixedPointValue = source.getRawBits();
 	return *this;
