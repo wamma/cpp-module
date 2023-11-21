@@ -1,14 +1,17 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap() {
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 100;
+	this->_AttackDamage = 30;
 	std::cout << "FragTrap 기본 생성자 호출" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	std::cout << "FragTrap 생성자 호출" << std::endl;
 	this->_HitPoints = 100;
 	this->_EnergyPoints = 100;
 	this->_AttackDamage = 30;
+	std::cout << "FrapTrap " << _Name << " has been created." << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
