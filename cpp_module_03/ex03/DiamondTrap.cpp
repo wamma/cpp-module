@@ -4,6 +4,7 @@ DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap(), _name("Default") {
 	_HitPoints = FragTrap::_HitPoints;
 	_EnergyPoints = ScavTrap::_EnergyPoints;
 	_AttackDamage = FragTrap::_AttackDamage;
+	ClapTrap::_Name = _name + "_clap_name";
 	std::cout << "DiamondTrap 기본 생성자 호출" << std::endl;
 }
 
