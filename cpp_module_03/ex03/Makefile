@@ -2,7 +2,7 @@ NAME = DiamondTrap
 
 HEADER = ScavTrap.hpp ClapTrap.hpp FragTrap.hpp DiamondTrap.hpp
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS =  -std=c++98
 RM = rm -f
 
 SRCS = main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp

@@ -1,16 +1,15 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap(), _name("Default") {
+DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), _name("Default") {
 	_HitPoints = FragTrap::_HitPoints;
 	_EnergyPoints = ScavTrap::_EnergyPoints;
 	_AttackDamage = FragTrap::_AttackDamage;
-	ClapTrap::_Name = _name + "_clap_name";
 	std::cout << "DiamondTrap 기본 생성자 호출" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name), _name(name) {
+DiamondTrap::DiamondTrap(std::string name) :ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
 	std::cout << "DiamondTrap " << _name << " has been created." << std::endl;
-	ClapTrap::_Name = name + "_clap_name";
+	// ClapTrap::_Name = _name + "_clap_name";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {
@@ -24,8 +23,7 @@ DiamondTrap::~DiamondTrap() {
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap const &other) {
 	if (this != &other) {
-		FragTrap::operator=(other);
-		ScavTrap::operator=(other);
+		ClapTrap::operator=(other);
 		this->_name = other._name;
 	}
 	return *this;
@@ -38,4 +36,11 @@ void DiamondTrap::attack(std::string const &target) {
 void DiamondTrap::whoAmI() {
 	std::cout << "DiamondTrap's name is " << _name << std::endl;
 	std::cout << "ClapTrap's name is " << _Name << std::endl;
+}
+
+void DiamondTrap::printDia()
+{
+	std::cout << _HitPoints << std::endl;
+	std::cout << _AttackDamage << std::endl;
+	std::cout << _EnergyPoints << std::endl;
 }

@@ -5,6 +5,10 @@
 
 class FragTrap : virtual public ClapTrap
 {
+	protected:
+		static const int FragHitPoints = 100;
+		static const int FragAttackDamage = 30;
+
 	public:
 		FragTrap();
 		FragTrap(std::string name);
