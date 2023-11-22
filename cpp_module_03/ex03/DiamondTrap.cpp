@@ -1,9 +1,9 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), _name("Default") {
-	_HitPoints = FragTrap::_HitPoints;
-	_EnergyPoints = ScavTrap::_EnergyPoints;
-	_AttackDamage = FragTrap::_AttackDamage;
+	_HitPoints = FragTrap::FragHitPoints;
+	_EnergyPoints = ScavTrap::ScavEnergyPoints;
+	_AttackDamage = FragTrap::FragAttackDamage;
 	std::cout << "DiamondTrap 기본 생성자 호출" << std::endl;
 }
 
@@ -40,7 +40,7 @@ void DiamondTrap::whoAmI() {
 
 void DiamondTrap::printDia()
 {
-	std::cout << _HitPoints << std::endl;
-	std::cout << _AttackDamage << std::endl;
-	std::cout << _EnergyPoints << std::endl;
+	std::cout << "Hit Points: " << _HitPoints << std::endl;
+	std::cout << "Attack Damage: " << _AttackDamage << std::endl;
+	std::cout << "Energy Points: " << _EnergyPoints << std::endl;
 }

@@ -2,7 +2,7 @@
 
 int main()
 {
-	// 테스트 케이스 1: 기본 생성자를 사용하여 객체 생성
+	// //테스트 케이스 1: 기본 생성자를 사용하여 객체 생성
 	// DiamondTrap dia1;
 	// dia1.attack("robot1");
 	// dia1.whoAmI();
@@ -27,11 +27,31 @@ int main()
 	// ScavTrap scav("scav");
 	// scav.guardGate();
 
-	// DiamondTrap dia;
-	// dia.printDia();
-	// return 0;
 
-	// ClapTrap* a = new DiamondTrap; // 다운 캐스팅
-	// DiamondTrap* b = reinterpret_cast<DiamondTrap*>(new ClapTrap); // 업 캐스팅 위험!
-	// b->whoAmI();
+	// DiamondTrap 변수 확인
+	// std::cout << "Scav's Hit Points: 100" << std::endl;
+	// std::cout << "Scav's Energy Points: 50" << std::endl;
+	// std::cout << "Scav's Attack Damage: 20\n\n" << std::endl;
+	// std::cout << "Frag's Hit Points: 100" << std::endl;
+	// std::cout << "Frag's Energy Points: 100" << std::endl;
+	// std::cout << "Frag's Attack Damage: 30\n\n" << std::endl;
+
+	// 업캐스팅 테스트
+	// DiamondTrap diamondTrap("MyDiamondTrap");
+	// ClapTrap* clapTrapPtr = &diamondTrap;
+	// clapTrapPtr->attack("enemy1");
+
+	// ClapTrap clapTrap("MyClapTrap");
+	// ClapTrap* clapTrapPtr2 = &clapTrap;
+	// DiamondTrap* diamondTrapPtr = dynamic_cast<DiamondTrap*>(clapTrapPtr2);
+
+	// if (diamondTrapPtr) {
+	// 	diamondTrapPtr->attack("enemy2");
+	// 	diamondTrapPtr->whoAmI();
+	// }
+	// else {
+	// 	std::cout << "Downcasting failed." << std::endl;
+	// }
+	return 0;
+
 }
