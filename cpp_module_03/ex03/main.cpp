@@ -37,21 +37,22 @@ int main()
 	// std::cout << "Frag's Attack Damage: 30\n\n" << std::endl;
 
 	// 업캐스팅 테스트
-	// DiamondTrap diamondTrap("MyDiamondTrap");
-	// ClapTrap* clapTrapPtr = &diamondTrap;
-	// clapTrapPtr->attack("enemy1");
+	DiamondTrap diamondTrap("MyDiamondTrap");
+	ClapTrap* clapTrapPtr = &diamondTrap;
+	clapTrapPtr->attack("enemy1");
 
-	// ClapTrap clapTrap("MyClapTrap");
-	// ClapTrap* clapTrapPtr2 = &clapTrap;
-	// DiamondTrap* diamondTrapPtr = dynamic_cast<DiamondTrap*>(clapTrapPtr2);
+	std::cout << std::endl;
+	// 다운캐스팅 테스트
+	ClapTrap clapTrap("MyClapTrap");
+	ClapTrap* clapTrapPtr2 = &clapTrap;
+	DiamondTrap* diamondTrapPtr = dynamic_cast<DiamondTrap*>(clapTrapPtr2);
 
-	// if (diamondTrapPtr) {
-	// 	diamondTrapPtr->attack("enemy2");
-	// 	diamondTrapPtr->whoAmI();
-	// }
-	// else {
-	// 	std::cout << "Downcasting failed." << std::endl;
-	// }
+	if (diamondTrapPtr) {
+		diamondTrapPtr->attack("enemy2");
+		diamondTrapPtr->whoAmI();
+	} else {
+		std::cout << "Downcasting failed." << std::endl;
+	}
 	return 0;
 
 }
