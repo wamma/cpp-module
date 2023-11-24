@@ -5,10 +5,10 @@ WrongAnimal::WrongAnimal() : type("None") {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) {
+	std::cout << "WrongAnimal Copy constructor called." << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
-	std::cout << "WrongAnimal Copy constructor called." << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
@@ -16,10 +16,10 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
+	std::cout << "WrongAnimal Copy assignment operator called." << std::endl;
 	if (this != &other){
 		type = other.type;
 	}
-	std::cout << "WrongAnimal Copy assignment operator called." << std::endl;
 	return *this;
 }
 

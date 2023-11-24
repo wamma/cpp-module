@@ -1,15 +1,15 @@
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal() {
-	type = "WrongCat";
 	std::cout << "WrongCat 기본 생성자 호출." << std::endl;
+	type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
+	std::cout << "WrongCat Copy constructor called." << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
-	std::cout << "WrongCat Copy constructor called." << std::endl;
 }
 
 WrongCat::~WrongCat() {
@@ -17,10 +17,10 @@ WrongCat::~WrongCat() {
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
+	std::cout << "WrongCat Copy assignment operator called." << std::endl;
 	if (this != &other) {
 		type = other.type;
 	}
-	std::cout << "WrongCat Copy assignment operator called." << std::endl;
 	return *this;
 }
 
