@@ -1,11 +1,11 @@
-NAME = Animal
+NAME = Brain
 
-HEADER = Animal.hpp Cat.hpp Dog.hpp
+HEADER = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
