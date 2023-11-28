@@ -1,22 +1,16 @@
 #include "Brain.hpp"
 
-Brain::Brain() {
-	std::cout << "Brain 기본 생성자 호출" << std::endl;
-}
+Brain::Brain() {}
 
 Brain::Brain(const Brain& other) {
-	std::cout << "Brain Copy constructor called." << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
 }
 
-Brain::~Brain() {
-	std::cout << "Brain Destructor called." << std::endl;
-}
+Brain::~Brain() {}
 
 Brain& Brain::operator=(const Brain& other) {
-	std::cout << "Brain Copy assignment operator called." << std::endl;
 	if (this != &other) {
 		for (int i = 0; i < 100; i++) {
 			ideas[i] = other.ideas[i];
