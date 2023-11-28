@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal() {
+Dog::Dog() : AAnimal() {
 	std::cout << "Dog 기본 생성자 호출." << std::endl;
 	type = "Dog";
 	brain = new Brain();
 }
 
-Dog::Dog(const Dog& other) : Animal(other){
+Dog::Dog(const Dog& other) : AAnimal(other){
 	std::cout << "Dog Copy constructor called." << std::endl;
 	brain = new Brain(*other.brain); // 깊은 복사
 	// brain = other.brain; // 얕은 복사

@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal() {
+Cat::Cat() : AAnimal() {
 	std::cout << "Cat 기본 생성자 호출." << std::endl;
 	type = "Cat";
 	brain = new Brain();
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : AAnimal(other) {
 	std::cout << "Cat Copy constructor called." << std::endl;
 	brain = new Brain(*other.brain);
 }
