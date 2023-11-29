@@ -5,14 +5,17 @@
 
 class Ice : public AMateria
 {
-    public:
-        Ice();
-        Ice(const Ice& other);
-        virtual ~Ice();
-        Ice& operator=(const Ice& other);
+	private:
+		int _xp;
 
-        virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+	public:
+		Ice();
+		Ice(const Ice& other);
+		virtual ~Ice();
+		Ice& operator=(const Ice& other);
+
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif

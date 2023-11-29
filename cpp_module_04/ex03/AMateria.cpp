@@ -15,7 +15,7 @@ std::string const &getType() const {
 	return _type;
 }
 
-Amateria* clone() const {
+AMateria* clone() const {
 	return new AMateria(*this);
 }
 

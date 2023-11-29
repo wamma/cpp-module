@@ -1,11 +1,11 @@
-NAME = 
+NAME = Game
 
-HEADER = 
+HEADER = AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp 
+SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

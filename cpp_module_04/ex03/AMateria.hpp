@@ -1,20 +1,23 @@
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef AMateria_HPP
+# define AMateria_HPP
 
 # include <iostream>
 # include "ICharacter.hpp"
-# include "IMateriaSource.hpp"
 
-class Amateria : public IMateriaSource
+class IChracter;
+
+class AMateria
 {
+	private:
+		AMateria();
+
 	protected:
 		std::string _type;
-		Amateria();
 
 	public:
-		Amateria(const Amateria &copy);
-		virtual ~Amateria();
-		Amateria &operator=(const Amateria &copy);
+		AMateria(const AMateria &copy);
+		virtual ~AMateria() = 0;
+		AMateria &operator=(const AMateria &copy);
 
 		std::string const &getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
