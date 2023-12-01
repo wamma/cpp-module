@@ -29,7 +29,16 @@ FragTrap& FragTrap::operator=(const FragTrap& other) {
 }
 
 void FragTrap::attack(std::string const &target) {
-	std::cout << "FragTrap " << _Name << " attacks " << target << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+	if (!this->_EnergyPoints || !this->_HitPoints) {
+		if (!this->_EnergyPoints)
+			std::cout << "FragTrap " << _Name << " is out of energy." << std::endl;
+		else
+			std::cout << "FragTrap " << _Name << " is already dead." << std::endl;
+	}
+	else {
+		std::cout << "ScavTrap " << _Name << " attacks " << target << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+		_EnergyPoints--;
+	}
 }
 
 void FragTrap::highFivesGuys(void) {
