@@ -24,10 +24,14 @@
 
 int main()
 {
-    ClapTrap* robot = new ScavTrap("Robot");
-    robot->attack("Target");
-    robot->takeDamage(5);
-    robot->beRepaired(5);
-    delete robot;
-    return 0;
+	ClapTrap* robot = new ScavTrap("Robot");
+	ScavTrap robot2("Robot2");
+	robot->showStatus();
+	robot->takeDamage(100);
+	robot->showStatus();
+	robot->attack("Robot2");
+	robot->showStatus();
+	robot2.showStatus();
+	delete robot;
+	return 0;
 }

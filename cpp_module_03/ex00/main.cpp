@@ -6,8 +6,9 @@ int main() {
 
 	robot1.showStatus();
 	robot1.takeDamage(5);
-	robot1.takeDamage(5);
 	robot1.showStatus();
+	robot1.takeDamage(5);
+	robot1.attack("Robot2");
 
 	return 0;
 }
