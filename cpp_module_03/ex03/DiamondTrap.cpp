@@ -37,9 +37,12 @@ void DiamondTrap::whoAmI() {
 	std::cout << "ClapTrap's name is " << _Name << std::endl;
 }
 
-void DiamondTrap::printDia()
+void DiamondTrap::showStatus() const
 {
+	std::cout << "\n----------------------\n" << std::endl;
+	std::cout << _name << "'s status" << std::endl;
 	std::cout << "Hit Points: " << _HitPoints << std::endl;
-	std::cout << "Attack Damage: " << _AttackDamage << std::endl;
 	std::cout << "Energy Points: " << _EnergyPoints << std::endl;
+	std::cout << "Attack Damage: " << _AttackDamage << std::endl;
+	std::cout << "\n----------------------\n" << std::endl;
 }
