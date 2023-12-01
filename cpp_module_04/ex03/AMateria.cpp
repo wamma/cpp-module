@@ -3,19 +3,21 @@
 
 AMateria::AMateria(const AMateria &copy) : _type(copy._type) {}
 
-AMateria::~AMateria() {}
+AMateria::~AMateria() {
+	delete this;
+}
 
-AMateria &AMateria::operator=(const AMateria &copy) {
+AMateria& AMateria::operator=(const AMateria &copy) {
 	if (this != &copy)
 		_type = copy._type;
 	return *this;
 }
 
-std::string const &getType() const {
+std::string const& AMateria::getType() const {
 	return _type;
 }
 
-AMateria* clone() const {
+AMateria* AMateria::clone() const {
 	return new AMateria(*this);
 }
 

@@ -58,3 +58,12 @@ void ClapTrap::beRepaired(unsigned int amount) {
 			std::cout << "Not enough Energy Points for repaired." << std::endl;
 		}
 }
+
+void ClapTrap::showStatus() const {
+	std::cout << "\n----------------------\n" << std::endl;
+	std::cout << "ClapTrap " << _Name << " status" << std::endl;
+	std::cout << "Hit Points: " << _HitPoints << std::endl;
+	std::cout << "Energy Points: " << _EnergyPoints << std::endl;
+	std::cout << "Attack Damage: " << _AttackDamage << std::endl;
+	std::cout << "\n----------------------\n" << std::endl;
+}

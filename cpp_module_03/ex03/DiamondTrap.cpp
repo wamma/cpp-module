@@ -9,7 +9,6 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap
 
 DiamondTrap::DiamondTrap(std::string name) :ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
 	std::cout << "DiamondTrap " << _name << " has been created." << std::endl;
-	// ClapTrap::_Name = _name + "_clap_name";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {

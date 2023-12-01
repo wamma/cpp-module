@@ -12,7 +12,8 @@ MateriaSource::MateriaSource(const MateriaSource& copy) {
 	for (int i = 0; i < _materiaSize; i++) {
 		if (copy.materias[i] != NULL) {
 			this->materias[i] = copy.materias[i]->clone();
-		} else {
+		}
+		else {
 			this->materias[i] = NULL;
 		}
 	}
