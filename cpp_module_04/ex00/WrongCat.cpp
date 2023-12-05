@@ -6,18 +6,18 @@ WrongCat::WrongCat() : WrongAnimal() {
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
-	std::cout << "WrongCat Copy constructor called." << std::endl;
+	std::cout << "WrongCat 복사 생성자 호출." << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
 }
 
 WrongCat::~WrongCat() {
-	std::cout << "WrongCat Destructor called." << std::endl;
+	std::cout << "WrongCat 소멸자 호출." << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
-	std::cout << "WrongCat Copy assignment operator called." << std::endl;
+	std::cout << "WrongCat 복사 할당 연산자 호출." << std::endl;
 	if (this != &other) {
 		type = other.type;
 	}
@@ -25,5 +25,5 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 }
 
 void WrongCat::makeSound() const {
-	std::cout << "Meow~" << std::endl;
+	std::cout << "WrongCat sound" << std::endl;
 }

@@ -6,18 +6,18 @@ Cat::Cat() : Animal() {
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
-	std::cout << "Cat Copy constructor called." << std::endl;
+	std::cout << "Cat 복사 생성자 호출." << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
 }
 
 Cat::~Cat() {
-	std::cout << "Cat Destructor called." << std::endl;
+	std::cout << "Cat 소멸자 호출." << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Cat Copy assignment operator called." << std::endl;
+	std::cout << "Cat 복사 할당 연산자 호출." << std::endl;
 	if (this != &other) {
 		type = other.type;
 	}
