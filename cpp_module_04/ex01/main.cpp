@@ -2,47 +2,49 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-
-	const WrongAnimal* wrongAnimal = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
-
-	std::cout << "wrongCat's type: " << wrongCat->getType() << std::endl;
-	wrongCat->makeSound(); // virtual 키워드가 없으니 wrongCat클래스 멤버 함수가 아닌 wrongAnimal클래스 멤버 함수 호출됨
-
-	delete meta;
-	delete j;
+	delete j;//should not create a leak
 	delete i;
-	delete wrongAnimal;
-	delete wrongCat;
 
 	return 0;
 }
 
 // int main()
 // {
-// 	Dog* originalDog = new Dog();
-// 	originalDog->setIdea(0, "original idea");
-// 	Dog* copiedDog = new Dog(*originalDog);
-// 	copiedDog->setIdea(0, "copied idea");
+// 	const Animal* j = new Dog();
+// 	const Animal* i = new Cat();
+// 	delete j;//should not create a leak
+// 	delete i;
 
-// 	std::cout << "Original Dog's idea: " << originalDog->getIdea(0) << std::endl;
-// 	std::cout << "copiedDog Dog's idea: " << copiedDog->getIdea(0) << std::endl;
+// 	const int size = 10;
+// 	Animal* animals[size];
 
-// 	delete originalDog;
-// 	delete copiedDog;
+// 	for (int i = 0; i < size; i++)
+// 	{
+// 		if (i < size / 2)
+// 		{
+// 			animals[i] = new Dog();
+// 		}
+// 		else
+// 		{
+// 			animals[i] = new Cat();
+// 		}
+// 	}
+
+// 	for (int i = 0; i < size; i++)
+// 	{
+// 		animals[i]->makeSound();
+// 	}
+
+// 	for (int i = 0; i < size; i++)
+// 	{
+// 		delete animals[i];
+// 	}
 
 // 	return 0;
 // }
+
