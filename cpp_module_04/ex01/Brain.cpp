@@ -18,7 +18,7 @@ Brain::~Brain() {
 Brain& Brain::operator=(const Brain& other) {
 	std::cout << "Brain 복사 할당 연산자 호출." << std::endl;
 	if (this != &other) {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 100; ++i) {
 			ideas[i] = other.ideas[i];
 		}
 	}
