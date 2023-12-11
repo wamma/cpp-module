@@ -6,21 +6,19 @@
 class Character : public ICharacter
 {
 	private:
-		std::string _name;
-		static const int _inventorySize = 4;
-		AMateria* inventory[Character::_inventorySize];
-		int numOfEquip;
+		std::string name;
+		AMateria *inventory[4];
 		Character();
 
 	public:
-		Character(std::string name);
-		Character(const Character& other);
-		~Character();
-		Character &operator=(const Character& other);
-
-		std::string const& getName() const;
-		void equip(int idx);
-		void use(int idx, ICharacter& target);
+		Character(std::string const &name);
+		virtual ~Character();
+		Character(const Character &other);
+		Character &operator=(const Character &other);
+		virtual std::string const &getName() const;
+		virtual void equip(AMateria *m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter &target);
 };
 
 #endif

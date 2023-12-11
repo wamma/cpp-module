@@ -1,21 +1,17 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-#include "AMateria.hpp"
+# include "AMateria.hpp"
 
 class Cure : public AMateria
 {
-	private:
-		int _xp;
-
 	public:
 		Cure();
 		Cure(const Cure& other);
 		virtual ~Cure();
 		Cure& operator=(const Cure& other);
-
 		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 };
 
-#endif // CURE_HPP
+#endif

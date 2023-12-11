@@ -1,24 +1,28 @@
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
-AMateria::AMateria(const AMateria &copy) : _type(copy._type) {}
+AMateria::AMateria() : type("") {}
 
-AMateria::~AMateria() {
-	delete this;
-}
+AMateria::AMateria(std::string const &type) : type(type) {}
 
-AMateria& AMateria::operator=(const AMateria &copy) {
-	if (this != &copy)
-		_type = copy._type;
+AMateria::~AMateria() {}
+
+AMateria::AMateria(const AMateria &other) : type(other.type) {}
+
+AMateria &AMateria::operator=(const AMateria &other)
+{
+	if (this != &other)
+	{
+		type = other.type;
+	}
 	return *this;
 }
 
-std::string const& AMateria::getType() const {
-	return _type;
+const std::string &AMateria::getType() const
+{
+	return type;
 }
 
-AMateria* AMateria::clone() const {
-	return new AMateria(*this);
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
 }
-
-void use(ICharacter& target) {}
