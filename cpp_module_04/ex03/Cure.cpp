@@ -1,18 +1,20 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("cure") {}
+Cure::Cure() : type("cure") {}
 
 Cure::~Cure() {}
 
-Cure::Cure(const Cure &other) : AMateria(other) {}
+Cure::Cure(const Cure &other) : type(other.getType()) {}
 
 Cure &Cure::operator=(const Cure &other)
 {
-	if (this != &other)
-	{
-		AMateria::operator=(other);
-	}
+	std::cout << "복사 할당 완료: " << other.getType() << std::endl;
 	return *this;
+}
+
+std::string const &Cure::getType() const
+{
+	return type;
 }
 
 AMateria *Cure::clone() const
@@ -22,6 +24,5 @@ AMateria *Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-	AMateria::use(target);
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
