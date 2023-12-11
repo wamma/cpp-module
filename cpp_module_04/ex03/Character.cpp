@@ -79,3 +79,12 @@ void Character::use(int idx, ICharacter &target)
 		std::cout << "Invalid index of unassigned Materia slot." << std::endl;
 	}
 }
+
+AMateria* Character::getMateriaType(int index) const
+{
+	if (index < 0 || index >= 4)
+	{
+		return NULL;
+	}
+	return inventory[index];
+}
