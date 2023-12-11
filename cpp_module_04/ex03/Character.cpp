@@ -4,7 +4,7 @@ Character::Character(std::string const &name) : name(name)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		inventory[i] = 0;
+		inventory[i] = NULL;
 	}
 }
 
@@ -12,21 +12,15 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (inventory[i])
-		{
-			delete inventory[i];
-		}
+		delete inventory[i];
 	}
 }
 
-Character::Character(const Character &other) : name(other.getName())
+Character::Character(const Character &other) : name(other.name)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (other.inventory[i])
-		{
-			inventory[i] = other.inventory[i]->clone();
-		}
+		inventory[i] = NULL;
 	}
 	*this = other;
 }

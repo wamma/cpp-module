@@ -5,15 +5,12 @@
 
 class Ice : public AMateria
 {
-	private:
-		std::string type;
 	public:
 		Ice();
 		virtual ~Ice();
 		Ice(const Ice& other);
 		Ice& operator=(const Ice& other);
-		std::string const& getType() const;
-		virtual Ice* clone() const;
+		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 };
 

@@ -1,11 +1,11 @@
-NAME = Brain
+NAME = Game
 
-HEADER = AAnimal.hpp Cat.hpp Dog.hpp Brain.hpp
+HEADER = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
