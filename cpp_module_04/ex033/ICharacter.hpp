@@ -3,7 +3,7 @@
 
 # include "AMateria.hpp"
 
-// class AMateria;
+class AMateria;
 
 class ICharacter
 {
