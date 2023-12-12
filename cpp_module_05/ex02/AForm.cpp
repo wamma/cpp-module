@@ -1,0 +1,81 @@
+#include "AForm.hpp"
+
+AForm::AForm(std::string const name, int const signGrade, int const executeGrade) : name(name), signedStatus(false), signGrade(signGrade), executeGrade(executeGrade)
+{
+	if (signGrade < 1 || executeGrade < 1)
+	{
+		throw GradeTooHighException();
+	}
+	else if (signGrade > 150 || executeGrade > 150)
+	{
+		throw GradeTooLowException();
+	}
+}
+
+AForm::AForm(const AForm& other) : name(other.name), signedStatus(other.signedStatus), signGrade(other.signGrade), executeGrade(other.executeGrade) {}
+
+AForm::~AForm() {}
+
+AForm& AForm::operator=(const AForm& other)
+{
+	if (this != &other)
+	{
+		signedStatus = other.signedStatus;
+	}
+	return *this;
+}
+
+const std::string& AForm::getName() const
+{
+	return name;
+}
+
+bool AForm::getSignedStatus() const
+{
+	return signedStatus;
+}
+
+int AForm::getGradeToSign() const
+{
+	return signGrade;
+}
+
+int AForm::getGradeToExecute() const
+{
+	return executeGrade;
+}
+
+void AForm::beSigned(const Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() <= signGrade)
+	{
+		signedStatus = false;
+	}
+	else if (bureaucrat.getGrade() > 150)
+	{
+		throw GradeTooLowException();
+	}
+	else if (bureaucrat.getGrade() < 1)
+	{
+		throw GradeTooHighException();
+	}
+}
+
+void AForm::signForm(const Bureaucrat& bureaucrat)
+{
+	try
+	{
+		beSigned(bureaucrat);
+		std::cout << bureaucrat.getName() << " signed " << name << std::endl;
+	}
+	catch(GradeTooLowException &e)
+	{
+		std::cout << bureaucrat.getName() << " couldn't sign " << name << "because " << e.what() << std::endl;
+	}
+}
+
+std::ostream& operator<<(std::ostream &out, const AForm &form)
+{
+	out << form.getName() << ", form sign status: " << form.getSignedStatus() << ", sign grade required: " << form.getGradeToSign() << ", execution grade required: " << form.getGradeToExecute() << std::endl;
+	return out;
+}
