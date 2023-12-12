@@ -4,11 +4,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(gr
 {
 	if (grade < 1)
 	{
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 	}
 	else if (grade > 150)
 	{
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	}
 }
 
