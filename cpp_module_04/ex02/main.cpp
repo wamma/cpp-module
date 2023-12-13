@@ -13,7 +13,7 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 
-	AAnimal animal; // AAnimal 클래스는 추상 클래스로 선언되어 있어 객체 직접 생성 못함
+	// AAnimal animal; // AAnimal 클래스는 추상 클래스로 선언되어 있어 객체 직접 생성 못함
 
 	return 0;
 }
