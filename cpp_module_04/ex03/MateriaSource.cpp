@@ -42,6 +42,7 @@ void MateriaSource::learnMateria(AMateria *m)
 			return;
 		}
 	}
+	std::cout << "MateriaSource is full. Cannot learn new Materia." << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
@@ -53,5 +54,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 			return (this->source[i]->clone());
 		}
 	}
+	std::cout << "Materia of type " << type << "is not found." << std::endl;
 	return (NULL);
 }

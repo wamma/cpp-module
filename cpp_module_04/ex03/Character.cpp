@@ -58,25 +58,33 @@ void Character::equip(AMateria *m)
 			return ;
 		}
 	}
+	std::cout << "Inventory is full. Cannot equip more Materia." << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 && idx < 4)
+	if (idx < 0 || idx >= 4)
 	{
-		inventory[idx] = NULL;
+		std::cout << "Invalid index. Cannot unequip Materia." << std::endl;
+		return ;
 	}
+	inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx < 4 && inventory[idx])
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Invalid index of unassigned Materia slot." << std::endl;
+		return;
+	}
+	if (inventory[idx])
 	{
 		inventory[idx]->use(target);
 	}
 	else
 	{
-		std::cout << "Invalid index of unassigned Materia slot." << std::endl;
+		std::cout << "No Materia equipped in this slot." << std::endl;
 	}
 }
 
