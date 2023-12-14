@@ -19,6 +19,7 @@ $(NAME): $(OBJS) $(HEADER)
 
 clean :
 	$(RM) $(RMFLAG) $(OBJS)
+	rm -rf *_shrubbery
 
 fclean : clean
 	$(RM) $(NAME)

@@ -6,6 +6,8 @@
 # include "GradeTooHighException.hpp"
 # include "GradeTooLowException.hpp"
 
+class AForm;
+
 class Bureaucrat
 {
 	private:
