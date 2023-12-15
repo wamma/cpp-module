@@ -16,7 +16,7 @@ class ShrubberyCreationForm : public AForm
 		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& other);
 
-		void execute(Bureaucrat const& executor) const;
+		virtual void execute(Bureaucrat const& executor) const;
 };
 
 #endif
