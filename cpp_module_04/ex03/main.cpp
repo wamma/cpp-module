@@ -14,19 +14,52 @@ int main()
 	Character *me = new Character("me");
 
 	// Materia 생성 및 장착
-	AMateria *tmp = src->createMateria("ice");
-	me->equip(tmp);
+	AMateria *tmp;
+
+	tmp = src->createMateria("ice");
+	if (tmp)
+	{
+		me->equip(tmp);
+	}
+	else
+	{
+		std::cout << "Failed to create ice materia." << std::endl;
+	}
 
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	if (tmp)
+	{
+		me->equip(tmp);
+	}
+	else
+	{
+		std::cout << "Failed to create cure materia." << std::endl;
+	}
 
-	// Materia의 타입 출력 예제
+	me->unequip(0);
+
+	// 없는 type의 Materia 생성
+	// tmp = src->createMateria("fire");
+	// if (tmp)
+	// {
+	// 	me->equip(tmp);
+	// }
+	// else
+	// {
+	// 	std::cout << "Failed to create fire materia." << std::endl;
+	// }
+
+	// 장착된 Materia의 타입 출력
 	for (int i = 0; i < 4; ++i)
 	{
 		AMateria *materia = me->getMateriaType(i);
 		if (materia)
 		{
 			std::cout << "Materia at index " << i << " has type: " << materia->getType() << std::endl;
+		}
+		else
+		{
+			std::cout << "No Materia equipped at index " << i << std::endl;
 		}
 	}
 
@@ -42,6 +75,7 @@ int main()
 
 	return 0;
 }
+
 
 // int main()
 // {

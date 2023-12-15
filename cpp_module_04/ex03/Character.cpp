@@ -12,7 +12,10 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		delete inventory[i];
+		if (inventory[i])
+		{
+			delete inventory[i];
+		}
 	}
 }
 
@@ -55,6 +58,7 @@ void Character::equip(AMateria *m)
 		if (!inventory[i])
 		{
 			inventory[i] = m;
+			std::cout << m->getType() << " Equip finish." << std::endl;
 			return ;
 		}
 	}
@@ -68,7 +72,9 @@ void Character::unequip(int idx)
 		std::cout << "Invalid index. Cannot unequip Materia." << std::endl;
 		return ;
 	}
+	floor.dropAmateria(idx); // 바닥 클래스에 담아두기
 	inventory[idx] = NULL;
+	std::cout << "Unequip finish." << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target)

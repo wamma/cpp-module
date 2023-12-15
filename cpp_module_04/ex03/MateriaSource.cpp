@@ -9,14 +9,20 @@ MateriaSource::MateriaSource()
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; ++i)
+	{
 		if (this->source[i])
+		{
 			delete this->source[i];
+		}
+	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
 	for (int i = 0; i < 4; ++i)
+	{
 		this->source[i] = copy.source[i]->clone();
+	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &copy)
@@ -54,6 +60,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 			return (this->source[i]->clone());
 		}
 	}
-	std::cout << "Materia of type " << type << "is not found." << std::endl;
+	std::cout << "Materia of type " << type << " is not found." << std::endl;
 	return (NULL);
 }
