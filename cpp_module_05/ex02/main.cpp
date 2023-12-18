@@ -45,28 +45,18 @@
 //     return 0;
 // }
 
-int main() {
-    try {
-        // Bureaucrat 객체 생성 (등급 설정)
-        Bureaucrat hyungjup("Hyungjup", 42);
-        std::cout << hyungjup << std::endl;
 
-        // ShrubberyCreationForm 객체 생성
-        ShrubberyCreationForm shrubberyForm("home");
+int main()
+{
+	try
+	{
+		Bureaucrat hyungjup("Hyungjup", 42);
+		std::cout << hyungjup << std::endl;
 
-        // Form 서명 (가정)
-        shrubberyForm.signForm(hyungjup);
-
-        // Form 실행
-        hyungjup.executeForm(shrubberyForm);
-
-    } catch (const GradeTooHighException& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    } catch (const GradeTooLowException& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    return 0;
+		PresidentialPardonForm presidentialForm("Alice");
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
 }
