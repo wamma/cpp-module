@@ -1,6 +1,6 @@
 #include "Convert.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
 	Convert convert;
 
