@@ -2,16 +2,20 @@
 # define CONVERT_HPP
 
 # include <iostream>
-# include <iomanip>
+# include <sstream>
 
 class Convert
 {
-	public:
+	private:
+		void handleSpecialCases(const std::string& literal);
+		bool isSpecialCase(const std::string& literal);
 		Convert();
-		Convert(const std::string& literal);
 		Convert(const Convert& copy);
-		~Convert();
 		Convert& operator=(const Convert& copy);
+
+	public:
+		Convert(const std::string& literal);
+		~Convert();
 		void convert(const std::string& literal);
 };
 

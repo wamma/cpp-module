@@ -4,16 +4,11 @@ int main(int argc, char **argv)
 {
 	Convert convert;
 
-	std::cout << "literal: 0\n" << std::endl;
-	convert.convert("0");
-	std::cout << "\nliteral: 42\n" << std::endl;
-	convert.convert("42");
-	convert.convert("42.0");
-	convert.convert("42.0f");
-	convert.convert("42.0f");
-	convert.convert("nan");
-	convert.convert("nanf");
-	convert.convert("inf");
-
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./convert [literal]" << std::endl;
+		return 1;
+	}
+	convert.convert(argv[1]);
 	return 0;
 }

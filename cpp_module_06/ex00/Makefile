@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = convert
 
 HEADER = Convert.hpp
 CXX = c++
