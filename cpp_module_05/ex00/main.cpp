@@ -11,10 +11,20 @@ int main()
 		// 등급 증가
 		bureau.incrementGrade();
 		std::cout << bureau << std::endl;
+
+		// 등급 감소
+		bureau.decrementGrade();
+		std::cout << bureau << std::endl;
+
+		Bureaucrat highBureau("high", 0);
 	}
-	catch
+	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		Bureaucrat
+		std::cerr << e.what() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 
 	return 0;

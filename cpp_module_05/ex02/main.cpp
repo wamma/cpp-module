@@ -32,10 +32,10 @@ int main() {
         hyungjup.decrementGrade();
         std::cout << hyungjup << std::endl;
     }
-    catch (GradeTooHighException &e) {
+    catch (Bureaucrat::GradeTooHighException &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
-    catch (GradeTooLowException &e) {
+    catch (Bureaucrat::GradeTooLowException &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
     catch (std::exception &e) {
