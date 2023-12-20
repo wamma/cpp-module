@@ -2,33 +2,19 @@
 
 int main()
 {
-	// 객체 생성 테스트
-	Bureaucrat bureau("hyungjup", 42);
-	std::cout << bureau << std::endl;
-
-	// 객체 등급 증가 테스트
-	bureau.incrementGrade();
-	std::cout << bureau << std::endl;
-
-	// 객체 등급 감소 테스트
-	bureau.decrementGrade();
-	std::cout << bureau << std::endl;
-
 	try
 	{
-		Bureaucrat invalidBureau("Invalid", 151);
+		// 객체 생성 테스트 (이름 없으면 생성 X)
+		Bureaucrat bureau("hyungjup", 42);
+		std::cout << bureau << std::endl;
+
+		// 등급 증가
+		bureau.incrementGrade();
+		std::cout << bureau << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch
 	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch (...)
-	{
-		std::cerr << "Unknown exception caught" << std::endl;
+		Bureaucrat
 	}
 
 	return 0;
