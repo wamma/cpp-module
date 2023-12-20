@@ -2,8 +2,6 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include "GradeTooHighException.hpp"
-# include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -19,23 +17,23 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& other);
 		const std::string &getName() const;
 		int getGrade() const;
-		// class GradeTooHighException : public std::exception
-		// {
-		// 	public:
-		// 		const char* what() const throw()
-		// 		{
-		// 			return "Grade is too high!";
-		// 		}
-		// };
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Grade is too high!";
+				}
+		};
 
-		// class GradeTooLowException : public std::exception
-		// {
-		// 	public:
-		// 		const char* what() const throw()
-		// 		{
-		// 			return "Grade is too low!";
-		// 		}
-		// };
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Grade is too low!";
+				}
+		};
 		void incrementGrade();
 		void decrementGrade();
 };

@@ -1,11 +1,11 @@
 NAME = Bureaucrat
 
-HEADER = Bureaucrat.hpp GradeTooHighException.hpp GradeTooLowException.hpp
+HEADER = Bureaucrat.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Bureaucrat.cpp GradeTooHighException.cpp GradeTooLowException.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

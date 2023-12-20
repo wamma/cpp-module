@@ -1,11 +1,11 @@
 NAME = Form
 
-HEADER = Bureaucrat.hpp GradeTooHighException.hpp GradeTooLowException.hpp Form.hpp
+HEADER = Bureaucrat.hpp Form.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp Bureaucrat.cpp GradeTooHighException.cpp GradeTooLowException.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
