@@ -4,10 +4,6 @@ Form::Form(std::string const name, int const signGrade, int const executeGrade) 
 {
 	if (signGrade < 1 || executeGrade < 1)
 	{
-		if (signGrade < 1)
-		{
-
-		}
 		throw Form::GradeTooHighException();
 	}
 	else if (signGrade > 150 || executeGrade > 150)
@@ -51,17 +47,13 @@ int Form::getGradeToExecute() const
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() <= signGrade)
-	{
-		signedStatus = false;
-	}
-	else if (bureaucrat.getGrade() > 150)
+	if (bureaucrat.getGrade() > signGrade)
 	{
 		throw Form::GradeTooLowException();
 	}
-	else if (bureaucrat.getGrade() < 1)
+	else
 	{
-		throw Form::GradeTooHighException();
+		signedStatus = true;
 	}
 }
 
@@ -84,7 +76,7 @@ void Form::signForm(const Bureaucrat& bureaucrat)
 	}
 	catch(Form::GradeTooLowException &e)
 	{
-		std::cout << bureaucrat.getName() << " couldn't sign " << name << "because " << e.what() << std::endl;
+		std::cout << bureaucrat.getName() << " couldn't sign " << name << " because " << e.what() << std::endl;
 	}
 }
 
