@@ -4,11 +4,11 @@ AForm::AForm(std::string const name, int const signGrade, int const executeGrade
 {
 	if (signGrade < 1 || executeGrade < 1)
 	{
-		throw GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	}
 	else if (signGrade > 150 || executeGrade > 150)
 	{
-		throw GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 }
 
@@ -53,11 +53,11 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 	}
 	else if (bureaucrat.getGrade() > 150)
 	{
-		throw GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 	else if (bureaucrat.getGrade() < 1)
 	{
-		throw GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	}
 }
 
@@ -68,7 +68,7 @@ void AForm::signForm(const Bureaucrat& bureaucrat)
 		beSigned(bureaucrat);
 		std::cout << bureaucrat.getName() << " signed " << name << std::endl;
 	}
-	catch(GradeTooLowException &e)
+	catch(AForm::GradeTooLowException &e)
 	{
 		std::cout << bureaucrat.getName() << " couldn't sign " << name << "because " << e.what() << std::endl;
 	}
@@ -78,4 +78,14 @@ std::ostream& operator<<(std::ostream &out, const AForm &form)
 {
 	out << form.getName() << ", form sign status: " << form.getSignedStatus() << ", sign grade required: " << form.getGradeToSign() << ", execution grade required: " << form.getGradeToExecute() << std::endl;
 	return out;
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+	return "AForm: Grade is too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return "AForm: Grade is too low!";
 }
