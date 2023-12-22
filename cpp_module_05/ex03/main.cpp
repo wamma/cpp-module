@@ -39,10 +39,10 @@ int main() {
     return 0;
 }
 
-int main()
-{
-	Intern someRandomIntern;
-	AForm* rrf;
+// int main()
+// {
+// 	Intern someRandomIntern;
+// 	AForm* rrf;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-}
+// 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+// }

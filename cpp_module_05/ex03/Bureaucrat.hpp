@@ -2,6 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "AForm.hpp"
+
+class AForm; // 이거 추가하는게 맞는것인가
 
 class Bureaucrat
 {
@@ -30,6 +33,7 @@ class Bureaucrat
 		};
 		void incrementGrade();
 		void decrementGrade();
+		void executeForm(AForm const& form);
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &value);
