@@ -5,6 +5,7 @@ int main()
 {
 	try
 	{
+		srand(time(NULL));
 		// Bureaucrat 객체 생성
 		Bureaucrat hyungjup("Hyungjup", 1); // 최상위 등급
 		std::cout << hyungjup << std::endl;
