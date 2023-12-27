@@ -1,8 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 
-int main() {
-	try {
+int main()
+{
+	try
+	{
 		// Bureaucrat 객체 생성
 		Bureaucrat hyungjup("Hyungjup", 1); // 최상위 등급
 		std::cout << hyungjup << std::endl;
