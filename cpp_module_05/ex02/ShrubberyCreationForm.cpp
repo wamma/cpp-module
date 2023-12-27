@@ -30,7 +30,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		std::cerr << "Error: Could not open file" << std::endl;
 		return;
 	}
-	int height = 5;
+	int height = 5; // tree 모양
 	for (int i = 0; i < height - 1; ++i)
 	{
 		for (int j = 0; j < height - i; ++j)

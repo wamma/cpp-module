@@ -5,7 +5,9 @@
 #include "AForm.hpp"
 
 int main() {
-	try {
+	try
+	{
+		srand(time(NULL));
 		// Bureaucrat 객체 생성
 		Bureaucrat hyungjup("Hyungjup", 42);
 		std::cout << hyungjup << std::endl;
@@ -32,13 +34,8 @@ int main() {
 		hyungjup.decrementGrade();
 		std::cout << hyungjup << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	catch (std::exception &e) {
+	catch (std::exception &e)
+	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
@@ -54,6 +51,9 @@ int main() {
 // 		std::cout << hyungjup << std::endl;
 
 // 		PresidentialPardonForm presidentialForm("Alice");
+// 		RobotomyRequestForm robotomyForm("Bob");
+
+// 		presidentialForm.signForm(hyungjup);
 // 	}
 // 	catch (std::exception &e)
 // 	{

@@ -68,7 +68,7 @@ void AForm::signForm(const Bureaucrat& bureaucrat)
 		beSigned(bureaucrat);
 		std::cout << bureaucrat.getName() << " signed " << name << std::endl;
 	}
-	catch(AForm::GradeTooLowException &e)
+	catch(std::exception &e)
 	{
 		std::cout << bureaucrat.getName() << " couldn't sign " << name << "because " << e.what() << std::endl;
 	}
