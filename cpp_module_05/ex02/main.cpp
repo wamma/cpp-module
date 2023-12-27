@@ -7,9 +7,11 @@
 int main() {
 	try
 	{
+		// 난수 시퀀스 생성
 		srand(time(NULL));
+
 		// Bureaucrat 객체 생성
-		Bureaucrat hyungjup("Hyungjup", 42);
+		Bureaucrat hyungjup("Hyungjup", 4);
 		std::cout << hyungjup << std::endl;
 
 		// 폼 객체 생성
