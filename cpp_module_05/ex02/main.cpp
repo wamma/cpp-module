@@ -20,13 +20,13 @@ int main() {
 		ShrubberyCreationForm shrubberyForm("Shikim");
 
 		// 폼 서명 및 실행 테스트
-		presidentialForm.signForm(hyungjup);
+		hyungjup.signForm(presidentialForm);
 		hyungjup.executeForm(presidentialForm);
 
-		robotomyForm.signForm(hyungjup);
+		hyungjup.signForm(robotomyForm);
 		hyungjup.executeForm(robotomyForm);
 
-		shrubberyForm.signForm(hyungjup);
+		hyungjup.signForm(shrubberyForm);
 		hyungjup.executeForm(shrubberyForm);
 
 		// 등급 증가 및 감소 테스트
