@@ -16,16 +16,19 @@ int main()
 		bureau.decrementGrade();
 		std::cout << bureau << std::endl;
 
-		Bureaucrat highBureau("high", 0);
+		Bureaucrat highBureau("high", 151);
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
+	// catch (Bureaucrat::GradeTooHighException &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	// catch (Bureaucrat::GradeTooLowException &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
 	return 0;
 }

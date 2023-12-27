@@ -5,19 +5,23 @@ int main()
 {
 	try
 	{
-		Bureaucrat bureaucrat("John Doe", 140);
+		Bureaucrat bureaucrat("hyungjup", 140);
 		Form form("Application Form", 45, 30);
 
 		std::cout << bureaucrat << std::endl;
 		std::cout << form << std::endl;
 
-		// Signing the form with a bureaucrat of sufficient grade
+		// 충분한 직급의 관료와 함께 양식에 서명하기
 		std::cout << "start to signForm funciton\n" << std::endl;
 		form.signForm(bureaucrat);
 
-		// Attempting to sign the form with a bureaucrat of insufficient grade
+		// 등급이 낮은 관료가 양식에 서명하려고 시도하는 경우
 		Bureaucrat lowGradeBureaucrat("Low Grade Bureaucrat", 60);
 		form.signForm(lowGradeBureaucrat);
+
+		// 등급이 너무 높은 관료가 양식에 서명하려고 시도하는 경우
+		Bureaucrat highGradeBureaucrat("High Grade Bureaucrat", -1);
+		form.signForm(highGradeBureaucrat);
 	}
 	catch (std::exception &e)
 	{
