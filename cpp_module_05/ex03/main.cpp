@@ -23,22 +23,22 @@ int main()
 		{
 			shrubberyForm->beSigned(hyungjup);
 			hyungjup.executeForm(*shrubberyForm);
-			// delete shrubberyForm; // 동적 할당 해제
+			delete shrubberyForm;
 		}
 		if (robotomyForm)
 		{
 			robotomyForm->beSigned(hyungjup);
 			hyungjup.executeForm(*robotomyForm);
-			// delete robotomyForm;
+			delete robotomyForm;
 		}
 		if (pardonForm)
 		{
 			pardonForm->beSigned(hyungjup);
 			hyungjup.executeForm(*pardonForm);
-			// delete pardonForm;
+			delete pardonForm;
 		}
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
