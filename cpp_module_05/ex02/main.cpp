@@ -11,7 +11,7 @@ int main() {
 		srand(time(NULL));
 
 		// Bureaucrat 객체 생성
-		Bureaucrat hyungjup("Hyungjup", 4);
+		Bureaucrat hyungjup("Hyungjup", 42);
 		std::cout << hyungjup << std::endl;
 
 		// 폼 객체 생성

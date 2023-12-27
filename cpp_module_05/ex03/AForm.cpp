@@ -49,7 +49,7 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= signGrade)
 	{
-		signedStatus = false;
+		signedStatus = true;
 	}
 	else if (bureaucrat.getGrade() > 150)
 	{

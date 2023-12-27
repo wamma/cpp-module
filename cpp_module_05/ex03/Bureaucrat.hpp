@@ -4,7 +4,7 @@
 # include <iostream>
 # include "AForm.hpp"
 
-class AForm; // 이거 추가하는게 맞는것인가
+class AForm;
 
 class Bureaucrat
 {
