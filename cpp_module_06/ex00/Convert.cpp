@@ -20,6 +20,18 @@ Convert& Convert::operator=(const Convert& copy)
 	return *this;
 }
 
+static bool isAllDigits(const std::string& str)
+{
+	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+	{
+		if (!isdigit(static_cast<unsigned char>(*it)))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 bool Convert::isSpecialCase(const std::string& literal)
 {
 	return (literal == "nan" || literal == "nanf" || literal == "inf" \
@@ -67,18 +79,48 @@ void Convert::convert(const std::string& literal)
 		float floatValue;
 		double doubleValue;
 
-		if (literal.length() == 1)
+		// charValue 처리 로직
+		// if (literal.length() == 1)
+		// {
+		// 	charValue = literal[0];
+		// 	if (std::isprint(charValue))
+		// 	{
+		// 		std::cout << "char: '" << charValue << "'" << std::endl;
+		// 	}
+		// 	else
+		// 	{
+		// 		std::cout << "char: impossible" << std::endl;
+		// 	}
+		// }
+		if (isAllDigits(literal))
 		{
-			charValue = literal[0];
-			if (std::isprint(charValue))
+			iss >> intValue;
+			if (!iss.fail())
 			{
-				std::cout << "char: '" << charValue << "'" << std::endl;
+				if (intValue >= std::numeric_limits<char>::min() && std::numeric_limits<char>::max() >= intValue)
+				{
+					charValue = static_cast<char>(intValue);
+					if (std::isprint(charValue))
+					{
+						std::cout << "char: '" << charValue << "'" << std::endl;
+					}
+					else
+					{
+						std::cout << "char: Non displayable" << std::endl;
+					}
+				}
 			}
 			else
 			{
 				std::cout << "char: impossible" << std::endl;
 			}
 		}
+		else
+		{
+			std::cout << "char: impossible" << std::endl;
+		}
+
+		// intValue 처리 로직
 		iss >> intValue;
 		if (!iss.fail())
 		{
@@ -88,23 +130,27 @@ void Convert::convert(const std::string& literal)
 		{
 			std::cout << "int: impossible" << std::endl;
 		}
+
+		// floatValue 처리 로직
 		iss.clear();
 		iss.str(literal);
 		iss >> floatValue;
 		if (!iss.fail())
 		{
-			std::cout << "float: " << floatValue << std::endl;
+			std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
 		}
 		else
 		{
 			std::cout << "float: impossible" << std::endl;
 		}
+
+		// double 처리 로직
 		iss.clear();
 		iss.str(literal);
 		iss >> doubleValue;
 		if (!iss.fail())
 		{
-			std::cout << "double: " << doubleValue << std::endl;
+			std::cout << "double: " << std::fixed << std::setprecision(1) << doubleValue << std::endl;
 		}
 		else
 		{

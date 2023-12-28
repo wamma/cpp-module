@@ -3,14 +3,16 @@
 
 # include <iostream>
 # include <sstream>
+# include <iomanip>
+# include <limits>
 
 class Convert
 {
 	private:
-		void handleSpecialCases(const std::string& literal);
-		bool isSpecialCase(const std::string& literal);
 		Convert(const Convert& copy);
 		Convert& operator=(const Convert& copy);
+		void handleSpecialCases(const std::string& literal);
+		bool isSpecialCase(const std::string& literal);
 
 	public:
 		Convert();
