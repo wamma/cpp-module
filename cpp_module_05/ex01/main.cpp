@@ -5,7 +5,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat hyungjup("hyungjup", 42);
+		Bureaucrat hyungjup("hyungjup", 35);
 		Form application("application", 40, 30);
 
 		std::cout << hyungjup << std::endl;
