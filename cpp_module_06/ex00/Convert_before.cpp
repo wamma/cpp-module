@@ -67,20 +67,24 @@ void Convert::convert(const std::string& literal)
 		float floatValue;
 		double doubleValue;
 
-		if (literal.length() == 1)
-		{
-			charValue = literal[0];
-			if (std::isprint(charValue))
-			{
-				std::cout << "char: '" << charValue << "'" << std::endl;
-			}
-			else
-			{
-				std::cout << "char: impossible" << std::endl;
-			}
-		}
 		iss >> intValue;
-		if (!iss.fail())
+		charValue = static_cast<char>(intValue);
+		iss.clear();
+		iss.str(literal);
+		iss >> floatValue;
+		iss.clear();
+		iss.str(literal);
+		iss >> doubleValue;
+
+		if (std::isprint(charValue))
+		{
+			std::cout << "char: '" << charValue << "'" << std::endl;
+		}
+		else
+		{
+			std::cout << "char: Non displayable" << std::endl;
+		}
+		if (floatValue == static_cast<float>(intValue))
 		{
 			std::cout << "int: " << intValue << std::endl;
 		}
@@ -88,27 +92,21 @@ void Convert::convert(const std::string& literal)
 		{
 			std::cout << "int: impossible" << std::endl;
 		}
-		iss.clear();
-		iss.str(literal);
-		iss >> floatValue;
-		if (!iss.fail())
+		if (floatValue == static_cast<float>(doubleValue))
 		{
-			std::cout << "float: " << floatValue << std::endl;
+			std::cout << "float: " << floatValue << ".0f" << std::endl;
 		}
 		else
 		{
-			std::cout << "float: impossible" << std::endl;
+			std::cout << "float: " << floatValue << "f" << std::endl;
 		}
-		iss.clear();
-		iss.str(literal);
-		iss >> doubleValue;
-		if (!iss.fail())
+		if (doubleValue == static_cast<double>(floatValue))
+		{
+			std::cout << "double: " << doubleValue << ".0" << std::endl;
+		}
+		else
 		{
 			std::cout << "double: " << doubleValue << std::endl;
-		}
-		else
-		{
-			std::cout << "double: impossible" << std::endl;
 		}
 	}
 	catch (const std::exception& e)

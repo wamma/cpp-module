@@ -9,11 +9,11 @@ class Convert
 	private:
 		void handleSpecialCases(const std::string& literal);
 		bool isSpecialCase(const std::string& literal);
-		Convert();
 		Convert(const Convert& copy);
 		Convert& operator=(const Convert& copy);
 
 	public:
+		Convert();
 		Convert(const std::string& literal);
 		~Convert();
 		void convert(const std::string& literal);

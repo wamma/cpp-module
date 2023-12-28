@@ -6,11 +6,11 @@
 class Serialization
 {
 	private:
-		Serialization();
 		Serialization(const Serialization &copy);
 		Serialization &operator=(const Serialization &copy);
 
 	public:
+		Serialization();
 		~Serialization();
 		struct Data
 		{
