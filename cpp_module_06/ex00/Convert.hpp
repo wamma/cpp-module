@@ -5,6 +5,7 @@
 # include <sstream>
 # include <iomanip>
 # include <limits>
+# include <climits>
 
 class Convert
 {

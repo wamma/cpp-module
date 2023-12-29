@@ -20,18 +20,6 @@ Convert& Convert::operator=(const Convert& copy)
 	return *this;
 }
 
-static bool isAllDigits(const std::string& str)
-{
-	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
-	{
-		if (!isdigit(static_cast<unsigned char>(*it)))
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
 bool Convert::isSpecialCase(const std::string& literal)
 {
 	return (literal == "nan" || literal == "nanf" || literal == "inf" \
@@ -73,6 +61,7 @@ void Convert::convert(const std::string& literal)
 	}
 	try
 	{
+		long temp = std::stol(literal);
 		std::istringstream iss(literal);
 		char charValue;
 		int intValue;
@@ -80,39 +69,16 @@ void Convert::convert(const std::string& literal)
 		double doubleValue;
 
 		// charValue 처리 로직
-		// if (literal.length() == 1)
-		// {
-		// 	charValue = literal[0];
-		// 	if (std::isprint(charValue))
-		// 	{
-		// 		std::cout << "char: '" << charValue << "'" << std::endl;
-		// 	}
-		// 	else
-		// 	{
-		// 		std::cout << "char: impossible" << std::endl;
-		// 	}
-		// }
-		if (isAllDigits(literal))
+		if (temp >= static_cast<long>(CHAR_MIN) && temp <= static_cast<long>(CHAR_MAX))
 		{
-			iss >> intValue;
-			if (!iss.fail())
+			charValue = static_cast<char>(temp);
+			if (std::isprint(charValue))
 			{
-				if (intValue >= std::numeric_limits<char>::min() && std::numeric_limits<char>::max() >= intValue)
-				{
-					charValue = static_cast<char>(intValue);
-					if (std::isprint(charValue))
-					{
-						std::cout << "char: '" << charValue << "'" << std::endl;
-					}
-					else
-					{
-						std::cout << "char: Non displayable" << std::endl;
-					}
-				}
+				std::cout << "char: '" << charValue << "'" << std::endl;
 			}
 			else
 			{
-				std::cout << "char: impossible" << std::endl;
+				std::cout << "char: Non displayable" << std::endl;
 			}
 		}
 		else
