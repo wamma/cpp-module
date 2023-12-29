@@ -1,7 +1,8 @@
-#ifndef SERIALIZATION_HPP
-# define SERIALIZATION_HPP
+#pragma once
 
-# include <iostream>
+#include <iostream>
+#include <stdint.h>
+#include "Data.hpp"
 
 class Serialization
 {
@@ -12,14 +13,6 @@ class Serialization
 	public:
 		Serialization();
 		~Serialization();
-		struct Data
-		{
-			std::string s1;
-			int n;
-			std::string s2;
-		};
-		uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
-
-#endif
