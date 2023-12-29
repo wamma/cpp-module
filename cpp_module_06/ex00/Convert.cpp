@@ -61,8 +61,10 @@ void Convert::convert(const std::string& literal)
 	}
 	try
 	{
-		long temp = std::stol(literal);
 		std::istringstream iss(literal);
+		long temp;
+		iss >> temp;
+
 		char charValue;
 		int intValue;
 		float floatValue;
@@ -87,6 +89,8 @@ void Convert::convert(const std::string& literal)
 		}
 
 		// intValue 처리 로직
+		iss.clear();
+		iss.str(literal);
 		iss >> intValue;
 		if (!iss.fail())
 		{
@@ -98,10 +102,16 @@ void Convert::convert(const std::string& literal)
 		}
 
 		// floatValue 처리 로직
+		std::string floatLiteral = literal;
+		size_t foundF = floatLiteral.find_last_of("fF");
+		if (foundF != std::string::npos)
+		{
+			floatLiteral = floatLiteral.substr(0, foundF);
+		}
 		iss.clear();
-		iss.str(literal);
-		iss >> floatValue;
-		if (!iss.fail())
+		iss.str(floatLiteral);
+		iss>>floatValue;
+		if (!iss.fail() && iss.eof())
 		{
 			std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
 		}
