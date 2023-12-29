@@ -36,19 +36,19 @@ void Convert::handleSpecialCases(const std::string& literal)
 		std::cout << "float: nanf" << std::endl;
 		std::cout << "double: nan" << std::endl;
 	}
-	else if (literal == "+inf" || literal == "-inf" || literal == "+inff" || literal == "-inff")
+	else if (literal == "inf" || literal == "inff" || literal == "+inff" || literal == "-inff")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: " << literal << std::endl;
 		std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
 	}
-	else if (literal == "inf" || literal == "inff")
+	else if (literal == "+inf" || literal == "-inf")
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << literal.substr(0, literal.size() - 1) << std::endl;
-		std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
+		std::cout << "float: " << literal << "f" << std::endl;
+		std::cout << "double: " << literal << std::endl;
 	}
 }
 
