@@ -16,8 +16,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
 	if (this != &other)
 	{
-		*this = other;
+		grade = other.grade;
 	}
+	*this = other;
 }
 
 Bureaucrat::~Bureaucrat() {}
