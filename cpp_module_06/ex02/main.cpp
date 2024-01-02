@@ -19,7 +19,7 @@ Base* generate(void)
 	return (NULL);
 }
 
-void identify(Base* p)
+void identify(Base* p) // dynamic_cast 실패시 NULL 반환
 {
 	if (dynamic_cast<A*>(p) != NULL)
 	{
@@ -36,7 +36,7 @@ void identify(Base* p)
 
 }
 
-void identify(Base& p)
+void identify(Base& p) // 참조 실패는 exception으로 처리
 {
 	try
 	{
