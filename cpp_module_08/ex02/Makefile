@@ -1,6 +1,6 @@
-NAME = Whatever
+NAME = MutantStack
 
-HEADER = whatever.hpp
+HEADER = MutantStack.hpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
