@@ -49,9 +49,6 @@ int main()
 	const WrongAnimal* wrongAnimal = new WrongAnimal();
 	const WrongCat* wrongCat = new WrongCat();
 
-	// std::cout << wrongAnimal->getType() << std::endl;
-	// std::cout << wrongCat->getType() << std::endl;
-
 	wrongAnimal->makeSound();
 	wrongCat->makeSound();
 
@@ -60,3 +57,11 @@ int main()
 
 	return 0;
 }
+
+// int main()
+// {
+// 	WrongAnimal* wrongAnimal = new WrongCat();
+
+// 	wrongAnimal->makeSound();
+// 	return 0;
+// }
