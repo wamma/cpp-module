@@ -1,33 +1,33 @@
-#include "Convert.hpp"
+#include "ScalarConverter.hpp"
 
-Convert::Convert() {}
+ScalarConverter::ScalarConverter() {}
 
-Convert::Convert(const Convert& copy)
+ScalarConverter::ScalarConverter(const ScalarConverter& copy)
 {
 	*this = copy;
 }
 
-Convert::Convert(const std::string& literal)
+ScalarConverter::ScalarConverter(const std::string& literal)
 {
 	convert(literal);
 }
 
-Convert::~Convert() {}
+ScalarConverter::~ScalarConverter() {}
 
-Convert& Convert::operator=(const Convert& copy)
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy)
 {
 	(void)copy;
 	return *this;
 }
 
-bool Convert::isSpecialCase(const std::string& literal)
+bool ScalarConverter::isSpecialCase(const std::string& literal)
 {
 	return (literal == "nan" || literal == "nanf" || literal == "inf" \
 	|| literal == "inff" || literal == "+inf" || literal == "+inff" \
 	|| literal == "-inf" || literal == "-inff");
 }
 
-void Convert::handleSpecialCases(const std::string& literal)
+void ScalarConverter::handleSpecialCases(const std::string& literal)
 {
 	if (literal == "nan" || literal == "nanf")
 	{
@@ -52,7 +52,7 @@ void Convert::handleSpecialCases(const std::string& literal)
 	}
 }
 
-void Convert::convert(const std::string& literal)
+void ScalarConverter::convert(const std::string& literal)
 {
 	if (isSpecialCase(literal))
 	{
@@ -121,8 +121,14 @@ void Convert::convert(const std::string& literal)
 		}
 
 		// double 처리 로직
+		std::string doubleLiteral = literal;
+		foundF = doubleLiteral.find_last_of("fF");
+		if (foundF != std::string::npos)
+		{
+			doubleLiteral = doubleLiteral.substr(0, foundF);
+		}
 		iss.clear();
-		iss.str(literal);
+		iss.str(doubleLiteral);
 		iss >> doubleValue;
 		if (!iss.fail())
 		{
