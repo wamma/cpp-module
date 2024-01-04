@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <vector>
@@ -10,16 +11,23 @@
 class BitcoinExchange
 {
 	private:
-		// std::map<std::string, double>;
-		std::string _filename;
+		std::map<std::string, double> priceData;
+		std::string _fileName;
 		std::string _filePath;
+
+		void parseFile(const std::string &fileName);
+		bool isValidDate(const std::string &date);
+		bool isValidValue(const std::string &value);
 
 	public:
 		BitcoinExchange();
 		~BitcoinExchange();
 		BitcoinExchange(BitcoinExchange const & other);
-		operator=(BitcoinExchange const & other);
-		void check_valid_file(std::string filename);
-		void run(std::string filename);
-		
+		BitcoinExchange &operator=(const BitcoinExchange& other);
+		void loadData(const std::string &fileName);
+		double getBitcoinValueOnDate(const std::string &date, double amount);
+		void handleException(const std::string &errorMessage);
+		void trim(std::string &str);
 };
+
+#endif

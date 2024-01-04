@@ -7,18 +7,14 @@ int main(int argc, char **argv)
 		std::cout << "Error: could not open file." << std::endl;
 		return 1;
 	}
-	else
+	std::ifstream file(argv[1]);
+	if (!file.is_open())
 	{
-		check_valid_file(argv[1]);
-		std::ifstream file(argv[1]);
-		if (!file.is_open())
-		{
-			std::cout << "Error: could not open file." << std::endl;
-			return 1;
-		}
-		file.close();
-		BitcoinExchange exchange;
-		exchange.run(argv[1]);
+		std::cout << "Error: could not open file." << std::endl;
+		return 1;
 	}
+	file.close();
+	BitcoinExchange exchange;
+	exchange.loadData(argv[1]);
 	return 0;
 }
