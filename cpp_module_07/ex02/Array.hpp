@@ -9,7 +9,7 @@ class Array
 {
 	private:
 		T* _array;
-		unsigned int _size;
+		int _size;
 
 	public:
 		Array();
@@ -17,7 +17,8 @@ class Array
 		~Array();
 		Array(const Array &other);
 		Array &operator=(const Array &other);
-		T& operator[](unsigned int index);
+		T& operator[](const int index);
+		const T& operator[](const int index) const;
 		unsigned int size() const;
 };
 

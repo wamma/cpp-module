@@ -7,7 +7,7 @@ Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
 template <typename T>
 Array<T>::Array(const Array &other) : _array(new T[other._size]), _size(other._size)
 {
-	for (unsigned int i = 0; i < _size; i++)
+	for (int i = 0; i < _size; i++)
 	{
 		_array[i] = other._array[i];
 	}
@@ -27,7 +27,7 @@ Array<T> &Array<T>::operator=(const Array &other)
 		delete[] _array;
 		_size = other._size;
 		_array = new T[_size];
-		for (unsigned int i = 0; i < _size; i++)
+		for (int i = 0; i < _size; i++)
 		{
 			_array[i] = other._array[i];
 		}
@@ -35,10 +35,22 @@ Array<T> &Array<T>::operator=(const Array &other)
 	return *this;
 }
 
+// const 없는 operator[]
 template <typename T>
-T& Array<T>::operator[](unsigned int index)
+T& Array<T>::operator[](const int index)
 {
-	if (index >= _size)
+	if (index < 0 || index >= _size)
+	{
+		throw std::exception();
+	}
+	return _array[index];
+}
+
+// const 있는 operator[]
+template <typename T>
+const T& Array<T>::operator[](const int index) const
+{
+	if (index < 0 || index >= _size)
 	{
 		throw std::exception();
 	}
